@@ -3,8 +3,10 @@ package com.app.kerja_mudah.ui.core
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.app.kerja_mudah.base.BaseActivity
+import com.app.kerja_mudah.core.constant.IntentAnimationType
 import com.app.kerja_mudah.data.response.core.FaqResponse
 import com.app.kerja_mudah.databinding.ActivityFaqDetailBinding
+import maes.tech.intentanim.CustomIntent
 
 class FaqDetailActivity : BaseActivity<ActivityFaqDetailBinding>(ActivityFaqDetailBinding::inflate) {
 
@@ -18,6 +20,11 @@ class FaqDetailActivity : BaseActivity<ActivityFaqDetailBinding>(ActivityFaqDeta
         faq = intent.getParcelableExtra(FAQ)
         binding?.tvQuestion?.text = faq?.question?:""
         binding?.tvAnswer?.text = faq?.answer?:""
+    }
+
+    override fun finish() {
+        super.finish()
+        CustomIntent.customType(this, IntentAnimationType.LEFT_TO_RIGHT)
     }
 
     override fun inject() {

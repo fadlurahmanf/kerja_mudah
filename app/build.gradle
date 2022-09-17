@@ -137,6 +137,9 @@ dependencies {
     //animated bottom bar
     implementation 'nl.joery.animatedbottombar:library:1.1.0'
 
+    //custom intent animation
+    implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
+
     implementation("androidx.work:work-runtime:$work_version")
     implementation("androidx.work:work-runtime-ktx:$work_version")
     implementation("androidx.work:work-rxjava2:$work_version")

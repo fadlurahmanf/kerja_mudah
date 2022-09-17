@@ -6,10 +6,12 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseActivity
+import com.app.kerja_mudah.core.constant.IntentAnimationType
 import com.app.kerja_mudah.data.mapper.faq.FaqMapper
 import com.app.kerja_mudah.data.response.core.FaqResponse
 import com.app.kerja_mudah.databinding.ActivityFaqBinding
 import com.app.kerja_mudah.ui.core.adapter.FaqAdapter
+import maes.tech.intentanim.CustomIntent
 
 class FaqActivity : BaseActivity<ActivityFaqBinding>(ActivityFaqBinding::inflate) {
     override fun initSetup() {
@@ -139,6 +141,7 @@ class FaqActivity : BaseActivity<ActivityFaqBinding>(ActivityFaqBinding::inflate
                 val intent = Intent(this@FaqActivity, FaqDetailActivity::class.java)
                 intent.putExtra(FaqDetailActivity.FAQ, faq)
                 startActivity(intent)
+                CustomIntent.customType(this@FaqActivity, IntentAnimationType.RIGHT_TO_LEFT)
             }
         })
         adapter.setList(mapper.fromListResponseToListModel(list))
