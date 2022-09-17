@@ -32,6 +32,7 @@ import com.app.kerja_mudah.ui.home.adapter.AdsBannerAdapter
 import com.app.kerja_mudah.ui.home.adapter.FreelancerAdapter
 import com.app.kerja_mudah.ui.home.adapter.JobAdapter
 import com.app.kerja_mudah.ui.home.viewmodel.HomeViewModel
+import com.app.kerja_mudah.ui.quran.QuranInformationActivity
 import javax.inject.Inject
 
 
@@ -61,6 +62,11 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
             binding?.swl?.isRefreshing = true
             homeViewModel.getAllAdsBanner()
             homeViewModel.getAllFreelancer()
+        }
+
+        binding?.mQuranView?.setOnClickListener {
+            val intent = Intent(requireActivity(), QuranInformationActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -51,7 +51,6 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintRight_toRightOf="parent"/>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -62,7 +61,80 @@
                         android:gravity="center"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent">
+                    </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="horizontal"
+                        android:id="@+id/ll_menu"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center_vertical"
+                        app:layout_constraintTop_toBottomOf="@id/ll_indicator_banner">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:id="@+id/mQuranView"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/solid_white_stroke_green_corner_2"
+                            android:padding="10dp">
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/il_quran"/>
+                            <TextView
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Quran"
+                                android:layout_marginTop="7dp"
+                                android:gravity="center"
+                                style="@style/Font.Regular.12"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/solid_white_stroke_green_corner_2"
+                            android:padding="10dp">
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/il_e_wallet"/>
+                            <TextView
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="eWallet"
+                                android:gravity="center"
+                                android:layout_marginTop="7dp"
+                                style="@style/Font.Regular.12"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/solid_white_stroke_green_corner_2"
+                            android:padding="10dp">
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/il_see_all"/>
+                            <TextView
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Semua"
+                                android:gravity="center"
+                                android:layout_marginTop="7dp"
+                                style="@style/Font.Regular.12"/>
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -70,12 +142,11 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:background="@color/white"
-                        app:layout_constraintTop_toBottomOf="@id/ll_indicator_banner"
+                        app:layout_constraintTop_toBottomOf="@id/ll_menu"
                         android:paddingVertical="10dp"
                         android:layout_marginTop="15dp"
                         android:gravity="center"
                         android:id="@+id/ll_freelancer_title">
-
                         <TextView
                             android:layout_width="0dp"
                             android:layout_weight="1"
@@ -87,7 +158,6 @@
                             style="@style/Font.SemiBold.16"
                             android:paddingHorizontal="15dp"
                             android:textColor="@color/black" />
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
