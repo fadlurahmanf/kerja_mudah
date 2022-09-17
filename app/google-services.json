@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "629896549010",
+    "project_id": "kerja-mudah",
+    "storage_bucket": "kerja-mudah.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629896549010:android:2ebf2b6dceff87eebe0c4b",
+        "android_client_info": {
+          "package_name": "com.app.kerja_mudah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "629896549010-th5kfmtnacre27hcph1udeov2toediag.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.kerja_mudah",
+            "certificate_hash": "a980f794e3f75a2bf728bd0c8f36d1a369422d74"
+          }
+        },
+        {
+          "client_id": "629896549010-mltfaf4sap3smaheon90mvc4157satnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMMxKYkvOVrptX-AvWRJ5QKbGqJGVT9kw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "629896549010-mltfaf4sap3smaheon90mvc4157satnq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

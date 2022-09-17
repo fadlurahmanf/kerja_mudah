@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ButtonKerjaMudah">
+        <attr name="button_text" format="string"/>
+        <attr name="button_enabled" format="boolean"/>
+        <attr name="button_type" format="enum">
+            <enum name="filled" value="0"/>
+            <enum name="outlined" value="1"/>
+        </attr>
+        <attr name="apply_corner" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="KerjaMudahProfilePicture">
+        <attr name="photo" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="IndicatorKerjaMudah">
+        <attr name="total_step" format="integer"/>
+        <attr name="current_step" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="BulletTextKerjaMudah">
+        <attr name="bullet_text" format="string"/>
+    </declare-styleable>
+</resources>

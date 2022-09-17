@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.widget.tab.HomeTabFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="false"
+            app:contentPaddingTop="40dp"
+            android:elevation="5dp"
+            app:cardBackgroundColor="@color/green"
+            android:background="@color/green"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kerjamudah."
+                style="@style/Font.Regular.16"
+                android:textColor="@color/white"
+                android:layout_marginVertical="15dp"
+                android:layout_gravity="center"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/swl"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/vp_banner"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ll_indicator_banner"
+                        app:layout_constraintTop_toBottomOf="@id/vp_banner"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        app:layout_constraintTop_toBottomOf="@id/ll_indicator_banner"
+                        android:paddingVertical="10dp"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:id="@+id/ll_freelancer_title">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_freelancer_title"
+                            android:text="Freelancer"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            style="@style/Font.SemiBold.16"
+                            android:paddingHorizontal="15dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_freelancer_see_all"
+                            android:text="@string/lihat_semua"
+                            style="@style/Font.SemiBold.14"
+                            android:layout_gravity="center_vertical"
+                            android:paddingHorizontal="15dp"
+                            android:textColor="@color/green"
+                            app:layout_constraintTop_toBottomOf="@id/vp_banner"
+                            app:layout_constraintRight_toRightOf="parent" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rv_freelancer"
+                        app:layout_constraintTop_toBottomOf="@id/ll_freelancer_title"
+                        android:overScrollMode="never"
+                        android:nestedScrollingEnabled="false"
+                        android:visibility="visible"
+                        android:orientation="horizontal"
+                        tools:listitem="@layout/item_freelancer"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ll_freelancer_shimmer"
+                        android:visibility="gone"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/rv_freelancer">
+                        <include layout="@layout/item_freelancer_shimmer"/>
+                        <include layout="@layout/item_freelancer_shimmer"/>
+                        <include layout="@layout/item_freelancer_shimmer"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        android:id="@+id/ll_reels_freelancer"
+                        app:layout_constraintTop_toBottomOf="@id/ll_freelancer_shimmer">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recommended Reels Freelancer"
+                            style="@style/Font.Bold.20"
+                            android:textColor="@color/black"
+                            android:layout_marginHorizontal="10dp"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/rv_reels"
+                            android:nestedScrollingEnabled="false"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            android:orientation="horizontal"
+                            tools:listitem="@layout/item_reels"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_job_title"
+                        android:text="@string/pekerjaan"
+                        style="@style/Font.Bold.20"
+                        android:paddingHorizontal="15dp"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toBottomOf="@id/ll_reels_freelancer"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginTop="15dp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        android:id="@+id/rv_job"
+                        app:layout_constraintTop_toBottomOf="@id/tv_job_title"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        tools:listitem="@layout/item_job"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ll_job_shimmer"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/rv_job">
+                        <include layout="@layout/item_freelancer_shimmer"/>
+                        <include layout="@layout/item_freelancer_shimmer"/>
+                        <include layout="@layout/item_freelancer_shimmer"/>
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

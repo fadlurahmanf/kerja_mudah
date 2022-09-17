@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Kerja Mudah</string>
+    <string name="landing_page_1">You decide how you want to work.</string>
+    <string name="or_sign_up_with">or sign up with</string>
+    <string name="or_sign_in_with">or sign in with</string>
+    <string name="index_per_total_index">%1$d/%2$d</string>
+    <string name="index_of_total_index">%1$d of %2$d</string>
+
+
+    <string name="long_latin" translatable="false">sasafaakjgajksgbnakjgsbajkfajgbjang
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+        nakjnasjaajgansjagajsgajga
+    </string>
+    <string name="lihat_semua">Lihat Semua</string>
+    <string name="pekerjaan">Pekerjaan</string>
+    <string name="total_review">( %d )</string>
+    <string name="total_service">%d services</string>
+    <string name="total_review_type_2">( %d reviews )</string>
+    <string name="rupiah_format">Rp. %s</string>
+    <string name="position_per_duration">%1$S / %2$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dummy_text_5_word">Lorem ipsum dolor sit amet.</string>
+    <string name="dummy_text_10_word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit.</string>
+    <string name="dummy_text_15_word">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae accumsan sapien. Curabitur eu efficitur.</string>
+    <string name="dummy_text_30_word">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium</string>
+    <string name="freelancer_category">Kategori Freelancer</string>
+    <string name="edit">EDIT</string>
+    <string name="detail_freelancer">Detail Freelancer</string>
+    <string name="document">Document</string>
+    <string name="terms_condition"><![CDATA[Terms & Condition]]></string>
+</resources>

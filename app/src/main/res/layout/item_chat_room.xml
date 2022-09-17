@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="15dp"
+        android:orientation="horizontal">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@color/yellow"
+            android:id="@+id/iv_profile_picture"
+            app:shapeAppearanceOverlay="@style/ImageViewCircle"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="15dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Josh Smith"
+                android:id="@+id/tv_name"
+                style="@style/Font.Bold.16"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello"
+                android:id="@+id/tv_last_chat"
+                android:maxLength="100"
+                style="@style/Font.Regular.16"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 Januari"
+            android:id="@+id/tv_last_updated_at"
+            android:layout_gravity="start"
+            android:paddingVertical="15dp"
+            style="@style/Font.Thin.14"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

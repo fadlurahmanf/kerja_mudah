@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.freelancer.UploadDocumentFreelancerActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_collapseMode="pin">
+
+                <com.app.kerja_mudah.custom_view.KerjaMudahIndicator
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:total_step="4"
+                    app:current_step="3"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:overScrollMode="never">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/cl_main"
+            android:paddingHorizontal="10dp"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/white_corner_15"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="20dp">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/il_check"
+                        android:id="@+id/iv_protect"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginRight="10dp"/>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="kerjamudah. is verified"
+                            style="@style/Font.Bold.14"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jangan khawatir, KTP mu aman sama kita dan hanya digunakan untuk verifikasi."
+                            style="@style/Font.Regular.12"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/stroke_green_corner_7"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:paddingVertical="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="10dp"
+                        android:id="@+id/ll_id_card"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/il_id_card"
+                            android:layout_marginRight="10dp"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="KTP*"
+                            style="@style/Font.Bold.16"
+                            android:textColor="@color/green"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:id="@+id/iv_arrow_id_card"
+                            android:src="@drawable/ic_arrow_forward_circle_outlined" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:visibility="visible"
+                            android:id="@+id/iv_check_id_card"
+                            android:src="@drawable/ic_check_circle"
+                            app:tint="@color/green"/>
+                    </LinearLayout>
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="200dp"
+                        android:layout_height="120dp"
+                        android:id="@+id/iv_id_card"
+                        android:src="@color/black"
+                        android:visibility="gone"
+                        android:layout_marginTop="15dp"
+                        app:shapeAppearanceOverlay="@style/ImageViewCorner10" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingVertical="15dp"
+                    android:id="@+id/ll_selfie_id_card"
+                    android:gravity="center"
+                    android:background="@drawable/stroke_green_corner_7"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/il_person"
+                            android:layout_marginRight="10dp"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="SELFIE DENGAN KTP*"
+                            style="@style/Font.Bold.16"
+                            android:textColor="@color/green"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:id="@+id/iv_arrow_selfie_id_card"
+                            android:src="@drawable/ic_arrow_forward_circle_outlined" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:visibility="visible"
+                            android:id="@+id/iv_check_selfie_id_card"
+                            android:src="@drawable/ic_check_circle"
+                            app:tint="@color/green"/>
+                    </LinearLayout>
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="180dp"
+                        android:layout_height="235dp"
+                        android:id="@+id/iv_selfie_id_card"
+                        android:visibility="gone"
+                        android:layout_marginTop="15dp"
+                        android:src="@color/black"
+                        app:shapeAppearanceOverlay="@style/ImageViewCorner5" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.app.kerja_mudah.custom_view.KerjaMudahButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_next"
+        app:button_text="Lanjut"
+        android:layout_gravity="bottom"
+        app:apply_corner="false"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

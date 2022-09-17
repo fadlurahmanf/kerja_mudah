@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.StarterAppMvvm.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
+    <!-- White Status Bar Color -->
+    <style name="NoActionBar1" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/white</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <item name="colorControlActivated">@color/black</item>
+        <item name="colorControlHighlight">@android:color/holo_red_dark</item>
+        <item name="colorControlNormal">@color/yellow</item>
+
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/green</item>
+
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/green</item>
+    </style>
+
+    <!-- Green Status Bar Color -->
+    <style name="NoActionBar2" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/green</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/green</item>
+
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/green</item>
+    </style>
+
+    <!-- Full Screen Transparent Status Bar -->
+    <style name="NoActionBar3" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/green</item>
+
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/green</item>
+    </style>
+
+    <!-- Full Screen Hide Status Bar -->
+    <style name="NoActionBar4" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/green</item>
+
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/green</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+
+    <!-- Image View-->
+    <style name="ImageViewCorner5">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">5dp</item>
+    </style>
+
+    <style name="ImageViewTopCorner5">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">5dp</item>
+        <item name="cornerSizeTopRight">5dp</item>
+    </style>
+
+    <style name="ImageViewCorner10">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="ImageViewCorner20">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="ImageViewCircle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- White Rounded Dialog-->
+    <style name="WhiteRoundedDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/white_corner_15</item>
+    </style>
+
+    <style name="ProgressBarGreen">
+        <item name="colorAccent">@color/green</item>
+    </style>
+
+    <style name="MaterialComponentSliderTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+    </style>
+
+    <style name="EditTextTheme1">
+        <item name="colorControlNormal">@color/light_grey</item>
+        <item name="colorControlActivated">@color/green</item>
+        <item name="colorControlHighlight">@color/red</item>
+    </style>
+
+</resources>
