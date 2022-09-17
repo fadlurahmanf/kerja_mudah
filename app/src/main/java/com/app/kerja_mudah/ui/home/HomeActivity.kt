@@ -26,6 +26,7 @@ import com.app.kerja_mudah.ui.home.widget.tab.HomeTabFragment
 import com.app.kerja_mudah.ui.home.widget.tab.MyProfileTabFragment
 import com.app.kerja_mudah.ui.home.widget.tab.SearchingTabFragment
 import com.tooltip.Tooltip
+import nl.joery.animatedbottombar.AnimatedBottomBar
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate) {
@@ -42,26 +43,25 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         initFragment()
         initAction()
         setTransparentStatusBar()
-//        showToolTip()
     }
 
     private fun showToolTip(){
-        val tooltip = Tooltip.Builder(binding!!.ivMyProfile)
-            .setText(R.string.dummy_text_5_word)
-            .setGravity(Gravity.TOP)
-            .setMargin(10f)
-            .setBackgroundColor(ContextCompat.getColor(this, R.color.green))
-            .setTextColor(ContextCompat.getColor(this, R.color.white))
-            .setCancelable(false)
-            .setPadding(20)
-            .setOnClickListener {
-                it.dismiss()
-            }
-            .build()
-
-        Handler().postDelayed({
-            tooltip.show()
-        }, 5000)
+//        val tooltip = Tooltip.Builder(binding!!.ivMyProfile)
+//            .setText(R.string.dummy_text_5_word)
+//            .setGravity(Gravity.TOP)
+//            .setMargin(10f)
+//            .setBackgroundColor(ContextCompat.getColor(this, R.color.green))
+//            .setTextColor(ContextCompat.getColor(this, R.color.white))
+//            .setCancelable(false)
+//            .setPadding(20)
+//            .setOnClickListener {
+//                it.dismiss()
+//            }
+//            .build()
+//
+//        Handler().postDelayed({
+//            tooltip.show()
+//        }, 5000)
     }
 
     private fun initData() {
@@ -80,25 +80,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
     }
 
     private fun initAction() {
-        binding?.ivHome?.setOnClickListener {
-            if (index != 0){
-                replaceFragment(0)
-                setStatusBarTextColor(false)
+        binding?.bottomNav?.setOnTabSelectListener(object : AnimatedBottomBar.OnTabSelectListener{
+            override fun onTabSelected(
+                lastIndex: Int,
+                lastTab: AnimatedBottomBar.Tab?,
+                newIndex: Int,
+                newTab: AnimatedBottomBar.Tab
+            ) {
+                if (lastIndex != newIndex){
+                    index = newIndex
+                    replaceFragment(newIndex)
+                }
             }
-        }
-
-        binding?.ivSearch?.setOnClickListener {
-            if (index != 1){
-                replaceFragment(1)
-            }
-        }
-
-        binding?.ivMyProfile?.setOnClickListener {
-            if (index != 2){
-                replaceFragment(2)
-                setStatusBarTextColor(true)
-            }
-        }
+        })
     }
 
     @Inject
@@ -107,8 +101,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
     private fun initFragment() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.fl, HomeTabFragment()).commit()
-        binding?.ivHome?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.green))
         replaceFragment(index)
+        binding?.bottomNav?.selectTabAt(0, animate = false)
     }
 
     private fun replaceFragment(index:Int){
@@ -117,35 +111,15 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             0 -> {
                 this.index = index
                 transaction.replace(R.id.fl, HomeTabFragment()).commit()
-                refreshIcon()
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    binding?.ivHome?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.green))
-                }
             }
             1 -> {
                 this.index = index
                 transaction.replace(R.id.fl, SearchingTabFragment()).commit()
-                refreshIcon()
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    binding?.ivSearch?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.green))
-                }
             }
             2 -> {
                 this.index = index
                 transaction.replace(R.id.fl, MyProfileTabFragment()).commit()
-                refreshIcon()
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    binding?.ivMyProfile?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.green))
-                }
             }
-        }
-    }
-
-    private fun refreshIcon(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            binding?.ivHome?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.grey))
-            binding?.ivSearch?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.grey))
-            binding?.ivMyProfile?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.grey))
         }
     }
 

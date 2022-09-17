@@ -134,6 +134,9 @@ dependencies {
     //bubble show case
     implementation "com.github.vihtarb:tooltip:0.2.0"
 
+    //animated bottom bar
+    implementation 'nl.joery.animatedbottombar:library:1.1.0'
+
     implementation("androidx.work:work-runtime:$work_version")
     implementation("androidx.work:work-runtime-ktx:$work_version")
     implementation("androidx.work:work-rxjava2:$work_version")

@@ -12,36 +12,47 @@
         android:layout_height="0dp"
         android:id="@+id/fl"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/ll_bottom_nav"/>
-    <LinearLayout
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"/>
+    <nl.joery.animatedbottombar.AnimatedBottomBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ll_bottom_nav"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:orientation="horizontal"
-        android:paddingVertical="10dp">
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:id="@+id/iv_home"
-            android:src="@drawable/ic_home"
-            android:layout_weight="1"
-            app:tint="@color/grey"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:id="@+id/iv_search"
-            android:src="@drawable/ic_search"
-            app:tint="@color/grey"
-            android:layout_weight="1"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:id="@+id/iv_my_profile"
-            android:src="@drawable/ic_person"
-            app:tint="@color/grey"
-            android:layout_weight="1"/>
-    </LinearLayout>
+        android:id="@+id/bottom_nav"
+        app:abb_tabs="@menu/home_tab"
+        app:abb_selectedTabType="text"
+        app:abb_selectedIndex="0"/>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/ll_bottom_nav"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingVertical="10dp">-->
+<!--        <ImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:id="@+id/iv_home"-->
+<!--            android:src="@drawable/ic_home"-->
+<!--            android:layout_weight="1"-->
+<!--            app:tint="@color/grey"/>-->
+<!--        <ImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:id="@+id/iv_search"-->
+<!--            android:src="@drawable/ic_search"-->
+<!--            app:tint="@color/grey"-->
+<!--            android:layout_weight="1"/>-->
+<!--        <ImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:id="@+id/iv_my_profile"-->
+<!--            android:src="@drawable/ic_person_outlined"-->
+<!--            app:tint="@color/grey"-->
+<!--            android:layout_weight="1"/>-->
+<!--    </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@
             app:hintEnabled="false"
             app:boxStrokeWidthFocused="0dp"
             app:endIconMode="custom"
-            app:startIconDrawable="@drawable/ic_search"
+            app:startIconDrawable="@drawable/ic_close"
             app:startIconTint="@color/light_grey"
             app:endIconDrawable="@drawable/ic_close"
             app:endIconTint="@color/grey"

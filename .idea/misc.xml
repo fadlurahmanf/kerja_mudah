@@ -84,7 +84,7 @@
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_freelancer_detail_form.xml" value="0.21873182082606166" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_freelancer_review.xml" value="0.3433155080213904" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_gallery.xml" value="0.5" />
-        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_home.xml" value="0.5" />
+        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_home.xml" value="0.4569832402234637" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_landing_page.xml" value="0.33" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_legal.xml" value="0.32533197139938713" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_login.xml" value="0.33177083333333335" />
@@ -166,6 +166,7 @@
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/kerja_mudah_button.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/layout_protect_by_kerja_mudah.xml" value="0.67" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/profile_picture_kerja_mudah.xml" value="0.33177083333333335" />
+        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/menu/home_tab.xml" value="0.21302083333333333" />
       </map>
     </option>
   </component>
