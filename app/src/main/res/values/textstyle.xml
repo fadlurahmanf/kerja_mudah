@@ -103,12 +103,20 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="Font.Regular.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="Font.SemiBold.20">
         <item name="android:textSize">20sp</item>
     </style>
 
     <style name="Font.Bold.20">
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Font.Bold.30">
+        <item name="android:textSize">30sp</item>
     </style>
 
     <style name="Font.Regular.35">
@@ -125,6 +133,10 @@
 
     <style name="Font.Bold.35">
         <item name="android:textSize">35sp</item>
+    </style>
+
+    <style name="Font.Bold.40">
+        <item name="android:textSize">40sp</item>
     </style>
 
     <style name="Font.Regular.14.White">

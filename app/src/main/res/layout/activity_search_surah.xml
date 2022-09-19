@@ -21,6 +21,7 @@
             android:layout_height="30dp"
             android:id="@+id/iv_back"
             android:padding="5dp"
+            android:layout_marginEnd="10dp"
             android:src="@drawable/ic_arrow_back"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -29,7 +30,9 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/iv_back"
             app:layout_constraintStart_toEndOf="@id/iv_back"
+            android:layout_marginLeft="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/white"
             android:id="@+id/et_search"

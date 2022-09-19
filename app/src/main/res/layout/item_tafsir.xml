@@ -75,6 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tafisr:"
+                    android:id="@+id/tv_tafsir_title"
                     android:layout_marginTop="10dp"
                     style="@style/Font.Bold.16"
                     android:layout_marginRight="5dp"

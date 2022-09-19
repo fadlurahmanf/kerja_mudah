@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.app.kerja_mudah.base.BaseActivity
 import com.app.kerja_mudah.base.BaseState
+import com.app.kerja_mudah.data.repository.quran.QuranRepository
 import com.app.kerja_mudah.data.response.quran.SurahResponse
 import com.app.kerja_mudah.data.response.quran.TafsirResponse
 import com.app.kerja_mudah.databinding.ActivityTafsirSurahBinding
@@ -34,10 +35,14 @@ class TafsirSurahActivity : BaseActivity<ActivityTafsirSurahBinding>(ActivityTaf
         viewModel.getTafsir(surah?.nomor?:-1)
     }
 
+    @Inject
+    lateinit var repository: QuranRepository
+
     private lateinit var adapter:ListTafsirAdapter
     private var list:ArrayList<TafsirResponse> = arrayListOf()
     private fun initAdapter() {
         adapter = ListTafsirAdapter()
+        adapter.setFontSize(repository.fontSize)
         adapter.setCallBack(object : ListTafsirAdapter.CallBack{
             override fun onSharedClicked(tafsir: TafsirResponse) {
 

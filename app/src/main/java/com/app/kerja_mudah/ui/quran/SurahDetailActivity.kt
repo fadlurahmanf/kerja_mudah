@@ -7,12 +7,14 @@ import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseActivity
 import com.app.kerja_mudah.base.BaseState
 import com.app.kerja_mudah.core.extension.toDurationFormatter
+import com.app.kerja_mudah.data.repository.quran.QuranRepository
 import com.app.kerja_mudah.data.response.quran.AyahResponse
 import com.app.kerja_mudah.data.response.quran.SurahResponse
 import com.app.kerja_mudah.databinding.ActivitySurahDetailBinding
 import com.app.kerja_mudah.di.component.QuranComponent
 import com.app.kerja_mudah.ui.quran.adapter.LisyAyahAdapter
 import com.app.kerja_mudah.ui.quran.viewmodel.QuranViewModel
+import com.app.kerja_mudah.ui.quran.widget.ChooseQuranFontSizeBottomSheet
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
@@ -45,7 +47,24 @@ class SurahDetailActivity : BaseActivity<ActivitySurahDetailBinding>(ActivitySur
         viewModel.getDetailSurah(surah?.nomor?:-1)
     }
 
+    @Inject
+    lateinit var quranRepository: QuranRepository
+
     private fun initAction() {
+        binding?.ivBack?.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding?.tvFontSize?.setOnClickListener {
+            val bottomSheet = ChooseQuranFontSizeBottomSheet()
+            bottomSheet.setCallBack(object : ChooseQuranFontSizeBottomSheet.CallBack{
+                override fun onDismiss() {
+                    adapter.setFontSize(quranRepository.fontSize)
+                }
+            })
+            bottomSheet.show(supportFragmentManager, ChooseQuranFontSizeBottomSheet::class.java.simpleName)
+        }
+
         binding?.ivPlayPause?.setOnClickListener {
             playAudio()
         }
@@ -171,6 +190,7 @@ class SurahDetailActivity : BaseActivity<ActivitySurahDetailBinding>(ActivitySur
     private fun initAdapter() {
         adapter = LisyAyahAdapter()
         adapter.setCallBack(callback)
+        adapter.setFontSize(quranRepository.fontSize)
         adapter.setList(listAyah)
         binding?.rv?.adapter = adapter
     }

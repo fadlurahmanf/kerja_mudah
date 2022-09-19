@@ -30,7 +30,8 @@ class SearchSurahActivity : BaseActivity<ActivitySearchSurahBinding>(ActivitySea
         Handler().postDelayed({
             binding?.etSearch?.requestFocus()
             binding!!.etSearch.showKeyboard()
-        }, 1000)
+        }, 500)
+        initAction()
         initAdapter()
         binding?.etSearch?.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -56,6 +57,12 @@ class SearchSurahActivity : BaseActivity<ActivitySearchSurahBinding>(ActivitySea
                 adapter.setList(newList)
             }
         })
+    }
+
+    private fun initAction() {
+        binding?.ivBack?.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private lateinit var adapter:ListSurahAdapter
