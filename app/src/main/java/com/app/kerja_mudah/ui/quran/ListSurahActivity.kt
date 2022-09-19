@@ -1,8 +1,6 @@
 package com.app.kerja_mudah.ui.quran
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import com.app.kerja_mudah.base.BaseActivity
 import com.app.kerja_mudah.base.BaseState
@@ -41,8 +39,8 @@ class ListSurahActivity : BaseActivity<ActivityListSurahBinding>(ActivityListSur
             onBackPressed()
         }
         binding?.ivSearch?.setOnClickListener {
-            val intent = Intent(this, SearchSuratActivity::class.java)
-            intent.putExtra(SearchSuratActivity.LIST_SURAH, listSurah)
+            val intent = Intent(this, SearchSurahActivity::class.java)
+            intent.putExtra(SearchSurahActivity.LIST_SURAH, listSurah)
             startActivity(intent)
         }
     }

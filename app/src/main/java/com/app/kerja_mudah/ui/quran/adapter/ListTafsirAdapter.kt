@@ -10,9 +10,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.data.response.quran.AyahResponse
+import com.app.kerja_mudah.data.response.quran.TafsirResponse
 
-class LisyAyahAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var list:ArrayList<AyahResponse> = arrayListOf()
+class ListTafsirAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private var list:ArrayList<TafsirResponse> = arrayListOf()
 
     private var callBack:CallBack ?= null
 
@@ -20,7 +21,7 @@ class LisyAyahAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         this.callBack = callBack
     }
 
-    fun setList(list:ArrayList<AyahResponse>){
+    fun setList(list:ArrayList<TafsirResponse>){
         this.list.clear()
         this.list.addAll(list)
         notifyDataSetChanged()
@@ -33,28 +34,30 @@ class LisyAyahAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         val indonesian:TextView = view.findViewById(R.id.tv_indonesian)
         val share:ImageView = view.findViewById(R.id.iv_share)
         val favorite:ImageView = view.findViewById(R.id.iv_favorite)
+        val tafsir:TextView = view.findViewById(R.id.tv_indonesian_tafsir)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_verse, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tafsir, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val ayah = list[position]
+        val tafsir = list[position]
 
         val mHolder = holder as ViewHolder
 
-        mHolder.nomorAyah.text = ayah.nomor?.toString() ?: ""
-        mHolder.arabic.text = ayah.ar ?: ""
+        mHolder.nomorAyah.text = tafsir.ayat?.toString() ?: ""
+        mHolder.arabic.text = tafsir.ar ?: ""
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            mHolder.latin.text = Html.fromHtml(ayah.tr?:"", Html.FROM_HTML_MODE_COMPACT)
+            mHolder.latin.text = Html.fromHtml(tafsir.tr?:"", Html.FROM_HTML_MODE_COMPACT)
         }else{
-            mHolder.latin.text = Html.fromHtml(ayah.tr?:"")
+            mHolder.latin.text = Html.fromHtml(tafsir.tr?:"")
         }
-        mHolder.indonesian.text = ayah.idn ?: ""
+        mHolder.indonesian.text = tafsir.idn ?: ""
+        mHolder.tafsir.text = tafsir.tafsir ?: ""
         mHolder.share.setOnClickListener {
-            callBack?.onSharedClicked(ayah)
+            callBack?.onSharedClicked(tafsir)
         }
     }
 
@@ -63,6 +66,6 @@ class LisyAyahAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     interface CallBack{
-        fun onSharedClicked(ayah:AyahResponse)
+        fun onSharedClicked(tafsir:TafsirResponse)
     }
 }

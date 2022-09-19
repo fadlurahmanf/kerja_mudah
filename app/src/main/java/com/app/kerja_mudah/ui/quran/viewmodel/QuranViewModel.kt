@@ -5,7 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import com.app.kerja_mudah.base.BaseState
 import com.app.kerja_mudah.base.BaseViewModel
 import com.app.kerja_mudah.data.entity.quran.QuranEntity
+import com.app.kerja_mudah.data.response.quran.SurahResponse
+import com.app.kerja_mudah.data.response.quran.TafsirResponse
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -69,6 +73,48 @@ class QuranViewModel @Inject constructor(
                     _state.value = stateData
                 }
             ))
+    }
+
+    fun getTafsir(nomor:Int){
+        stateData.getTafsirSurah = BaseState.LOADING
+        _state.value = stateData
+        Observable.zip(
+            quranEntity.getDetailSurah(nomor),
+            quranEntity.getTafsir(nomor),
+            BiFunction { t1, t2 ->
+                SurahResponse(
+                    nomor = t1.nomor,
+                    nama = t1.nama,
+                    namaLatin = t1.namaLatin,
+                    jumlahAyat = t1.jumlahAyat,
+                    tempatTurun = t1.tempatTurun,
+                    arti = t1.arti,
+                    deskripsi = t1.deskripsi,
+                    audio = t1.audio,
+                    ayat = t1.ayat,
+                    tafsir = t2.tafsir
+                )
+            }
+        ).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    stateData.getTafsirSurah = BaseState.SUCCESS
+                    stateData.tafsirSurah = it
+                    _state.value = stateData
+                },
+                {
+                    stateData.getTafsirSurah = BaseState.FAILED
+                    stateData.errorTafsirSurah = it.message
+                    _state.value = stateData
+                    stateData.getTafsirSurah = BaseState.IDLE
+                    _state.value = stateData
+                },
+                {
+                    stateData.getTafsirSurah = BaseState.IDLE
+                    _state.value = stateData
+                }
+            )
     }
 
 }

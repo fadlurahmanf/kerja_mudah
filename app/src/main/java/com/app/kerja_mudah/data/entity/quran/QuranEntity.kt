@@ -15,4 +15,6 @@ class QuranEntity @Inject constructor(
     fun getListSurah() = networkService(30).getListSurah()
 
     fun getDetailSurah(nomor:Int) = networkService(30).getSurah(nomor)
+
+    fun getTafsir(nomor: Int) = networkService(30).getTafsir(nomor)
 }

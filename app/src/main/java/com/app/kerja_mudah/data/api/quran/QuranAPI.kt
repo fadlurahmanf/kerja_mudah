@@ -13,4 +13,9 @@ interface QuranAPI {
     fun getSurah(
         @Path("nomor") nomor:Int
     ):Observable<SurahResponse>
+
+    @GET("tafsir/{nomor}")
+    fun getTafsir(
+        @Path("nomor") nomor: Int
+    ) : Observable<SurahResponse>
 }

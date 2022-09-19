@@ -23,5 +23,7 @@ data class SurahResponse(
     @SerializedName("audio")
     var audio:String ?= null,
     @SerializedName("ayat")
-    var ayat:ArrayList<AyahResponse> ?= null
+    var ayat:ArrayList<AyahResponse> ?= null,
+    @SerializedName("tafsir")
+    var tafsir:ArrayList<TafsirResponse> ?= null
 ) : Parcelable

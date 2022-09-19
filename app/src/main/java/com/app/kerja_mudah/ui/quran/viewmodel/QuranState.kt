@@ -11,5 +11,9 @@ data class QuranState(
     var getDetailSurah:BaseState = BaseState.IDLE,
     var detailSurah:SurahResponse ?= null,
     var playAudio:Boolean = false,
-    var errorDetailSurah:String ?= null
+    var errorDetailSurah:String ?= null,
+
+    var getTafsirSurah:BaseState = BaseState.IDLE,
+    var tafsirSurah:SurahResponse ?= null,
+    var errorTafsirSurah:String ?= null
 )

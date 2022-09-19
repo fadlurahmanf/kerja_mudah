@@ -62,6 +62,15 @@ class SurahDetailActivity : BaseActivity<ActivitySurahDetailBinding>(ActivitySur
             }
         }
 
+        binding?.ivInfo?.setOnClickListener {
+            if (surah == null){
+                return@setOnClickListener
+            }
+            val intent = Intent(this, TafsirSurahActivity::class.java)
+            intent.putExtra(TafsirSurahActivity.SURAH, surah)
+            startActivity(intent)
+        }
+
         binding?.ivNext?.setOnClickListener {
             if ((surah?.nomor?:114) >= 114){
                 showSnackBar("${surah?.namaLatin} adalah surah terakhir")

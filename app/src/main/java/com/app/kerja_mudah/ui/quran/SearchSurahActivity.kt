@@ -5,18 +5,16 @@ import android.content.res.ColorStateList
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseActivity
 import com.app.kerja_mudah.core.extension.closeKeyboard
-import com.app.kerja_mudah.core.extension.hideKeyboard
 import com.app.kerja_mudah.core.extension.showKeyboard
 import com.app.kerja_mudah.data.response.quran.SurahResponse
-import com.app.kerja_mudah.databinding.ActivitySearchSuratBinding
+import com.app.kerja_mudah.databinding.ActivitySearchSurahBinding
 import com.app.kerja_mudah.ui.quran.adapter.ListSurahAdapter
 
-class SearchSuratActivity : BaseActivity<ActivitySearchSuratBinding>(ActivitySearchSuratBinding::inflate) {
+class SearchSurahActivity : BaseActivity<ActivitySearchSurahBinding>(ActivitySearchSurahBinding::inflate) {
 
     companion object{
         const val LIST_SURAH = "LIST_SURAH"
@@ -32,8 +30,6 @@ class SearchSuratActivity : BaseActivity<ActivitySearchSuratBinding>(ActivitySea
         Handler().postDelayed({
             binding?.etSearch?.requestFocus()
             binding!!.etSearch.showKeyboard()
-//            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-//            imm.showSoftInput(binding!!.etSearch, InputMethodManager.SHOW_FORCED)
         }, 1000)
         initAdapter()
         binding?.etSearch?.addTextChangedListener(object : TextWatcher{
@@ -41,25 +37,22 @@ class SearchSuratActivity : BaseActivity<ActivitySearchSuratBinding>(ActivitySea
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if ((binding?.etSearch?.text?.length?:0) <= 0){
-                    binding?.etSearch?.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this@SearchSuratActivity, R.color.light_grey)))
+                    binding?.etSearch?.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this@SearchSurahActivity, R.color.light_grey)))
                 }else{
-                    binding?.etSearch?.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this@SearchSuratActivity, R.color.dark_blue)))
+                    binding?.etSearch?.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this@SearchSurahActivity, R.color.dark_blue)))
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {
-                list.forEach {
-                    println("masuk ${it.namaLatin} dan ${(it.namaLatin)?.contains(s?.toString()?.lowercase()?:"") == true}")
-                }
                 val newList = ArrayList(list.filter {
                     it.arti?.contains(s?.toString()?:"", false) == true
                             || it.nomor?.toString()?.contains(s?.toString()?:"", true) == true
                             || it.nama?.contains(s?.toString()?:"", true) == true
-                            || it.namaLatin?.contains(s?.toString()?:"", true) == true
+                            || it.namaLatin?.replace("-", "")?.contains(s?.toString()?:"", true) == true
                             || it.tempatTurun?.contains(s?.toString()?:"", true) == true
                 }.toList())
-                this@SearchSuratActivity.listSearchQuran.clear()
-                this@SearchSuratActivity.listSearchQuran.addAll(newList)
+                this@SearchSurahActivity.listSearchQuran.clear()
+                this@SearchSurahActivity.listSearchQuran.addAll(newList)
                 adapter.setList(newList)
             }
         })
@@ -71,7 +64,7 @@ class SearchSuratActivity : BaseActivity<ActivitySearchSuratBinding>(ActivitySea
         adapter.setCallBack(object : ListSurahAdapter.CallBack{
             override fun onClicked(surahResponse: SurahResponse) {
                 binding!!.etSearch.closeKeyboard()
-                val intent = Intent(this@SearchSuratActivity, SurahDetailActivity::class.java)
+                val intent = Intent(this@SearchSurahActivity, SurahDetailActivity::class.java)
                 intent.putExtra(SurahDetailActivity.SURAH, surahResponse)
                 startActivity(intent)
             }
