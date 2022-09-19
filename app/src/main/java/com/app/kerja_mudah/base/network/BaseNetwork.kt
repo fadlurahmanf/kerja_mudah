@@ -22,8 +22,6 @@ abstract class BaseNetwork<T>() {
 
     open fun okHttpClientBuilder(builder: OkHttpClient.Builder): OkHttpClient.Builder{
         return builder.addInterceptor(loggingInterceptor())
-            .addInterceptor(ContentTypeInterceptor())
-            .addInterceptor(ExceptionInterceptor())
     }
 
     private fun provideClient(timeOut: Long): OkHttpClient {
@@ -34,7 +32,7 @@ abstract class BaseNetwork<T>() {
             .build()
     }
 
-    private val BASE_DEV_URL = BuildConfig.BASE_DEV_URL
+//    private val BASE_DEV_URL = BuildConfig.BASE_DEV_URL
 
 
     private fun providesRetrofitBuilder(): Retrofit.Builder{

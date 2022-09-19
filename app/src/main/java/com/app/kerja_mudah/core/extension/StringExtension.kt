@@ -11,6 +11,7 @@ import java.util.*
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 import kotlin.Exception
+import kotlin.collections.ArrayList
 
 fun String.encrypt() : String?{
     try {
@@ -148,5 +149,22 @@ fun String.toCacheKeyFromPublicVideo():String?{
     }catch (e:Exception){
         Log.e("StringExtension", "${e.message}")
         return null
+    }
+}
+
+fun String.changeFirstWordToUpperCase():String{
+    try {
+        var newString = ""
+        val list:List<String> = split("")
+        for (element in 0 until list.size-1){
+            if (element == 1){
+                newString += list[element].uppercase()?:""
+            }else{
+                newString += list[element]?:""
+            }
+        }
+        return newString
+    }catch (e:Exception){
+        return this
     }
 }

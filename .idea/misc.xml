@@ -39,6 +39,7 @@
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/drawable/ic_check_circle.xml" value="0.2565" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/drawable/ic_close_circle.xml" value="0.2565" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/drawable/ic_double_check.xml" value="0.1815" />
+        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/drawable/ic_pause.xml" value="0.193" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/drawable/ic_visibility.xml" value="0.2565" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/drawable/light_green_corner_3.xml" value="0.2985" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/drawable/light_grey.xml" value="0.175" />
@@ -100,11 +101,13 @@
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_register_freelancer_loading.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_register_freelancer_summary.xml" value="0.29791666666666666" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_registration_success.xml" value="0.33177083333333335" />
+        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_search_surat.xml" value="0.32533197139938713" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_select_freelancer_category.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_select_payment_method.xml" value="0.32533197139938713" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_service_order.xml" value="0.32533197139938713" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_single_video_player.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_splash.xml" value="0.33177083333333335" />
+        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_surah_detail.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_upload_document_freelancer.xml" value="0.6632801161103048" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_vpvertical_video.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/activity_web_view.xml" value="0.22760416666666666" />
@@ -164,6 +167,7 @@
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/item_service_order.xml" value="0.4079110012360939" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/item_surah.xml" value="0.32533197139938713" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/item_text.xml" value="0.32533197139938713" />
+        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/item_verse.xml" value="0.33" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/item_vertical_video.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/item_video.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/kerja_mudah_kotlin/kerja_mudah_kotlin/app/src/main/res/layout/kerja_mudah_bullet_text.xml" value="0.6463932107496464" />

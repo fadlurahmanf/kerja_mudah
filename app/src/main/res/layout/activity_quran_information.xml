@@ -63,7 +63,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Informasi terkait Al-Quran ini berasal dari Equran.id"
+            android:text="Informasi terkait Al-Quran ini berasal dari Equran.id. "
             android:layout_marginTop="20dp"
             style="@style/Font.Regular.14"
             android:textColor="@color/grey"/>

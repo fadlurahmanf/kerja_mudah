@@ -22,13 +22,24 @@
         android:theme="@style/Theme.StarterAppMvvm"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.quran.SearchSuratActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar1"/>
+        <activity
+            android:name=".ui.quran.SurahDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar1" />
+        <activity
             android:name=".ui.quran.ListSurahActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar2"/>
+            android:theme="@style/NoActionBar2" />
         <activity
             android:name=".ui.quran.QuranInformationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/NoActionBar2" />
         <activity
             android:name=".ui.core.AboutActivity"
             android:exported="false"

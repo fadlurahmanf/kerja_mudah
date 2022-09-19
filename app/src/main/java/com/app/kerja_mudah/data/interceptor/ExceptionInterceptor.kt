@@ -37,8 +37,6 @@ class ExceptionInterceptor : Interceptor {
                 return response
             }
         }catch (e:Exception){
-            Log.e(TAG, "catchException: ${e.javaClass.name}")
-            System.out.println("MASUK MASUK SINI ${e.message}")
             if (e is SocketTimeoutException){
                 throw IOException("Failed to connect with server. Please try again later!")
             } else if (e is ConnectException){

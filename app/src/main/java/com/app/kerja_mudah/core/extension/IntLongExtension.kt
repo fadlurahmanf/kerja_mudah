@@ -41,7 +41,7 @@ fun Int.toRupiahFormat():String?{
  * */
 fun Long.toDurationFormatter():String?{
     try {
-        val inSecond = (this/1000)
+        val inSecond = (this/1000).toInt()
         if (inSecond < 60){
             return "00:${if (inSecond < 10) "0$inSecond" else "$inSecond"}"
         }else{

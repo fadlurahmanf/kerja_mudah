@@ -19,6 +19,7 @@ interface ApplicationComponent {
     fun serviceComponent():ServiceComponent.Factory
     fun chatComponent():ChatComponent.Factory
     fun paymentComponent():PaymentComponent.Factory
+    fun quranComponent():QuranComponent.Factory
 
     @Component.Factory
     interface Factory{

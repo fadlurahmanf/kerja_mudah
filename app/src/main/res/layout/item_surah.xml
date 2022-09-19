@@ -12,12 +12,14 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
         <TextView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="1"
+            android:id="@+id/tv_number_surah"
             android:layout_gravity="start"
             style="@style/Font.Bold.20"
-            android:textColor="@color/green"/>
+            android:textColor="@color/green"
+            android:layout_marginRight="10dp"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -30,6 +32,7 @@
                 android:background="@drawable/solid_light_green_stroke_green_corner_5"
                 android:paddingHorizontal="5dp"
                 android:paddingVertical="2dp"
+                android:id="@+id/tv_location_surah"
                 android:layout_marginTop="2dp"
                 style="@style/Font.Regular.14"
                 android:textColor="@color/green"/>
@@ -37,6 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Al-Baqarah"
+                android:id="@+id/tv_latin_title"
                 style="@style/Font.SemiBold.16"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/dark_blue"/>
@@ -44,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sapi"
+                android:id="@+id/tv_indonesian_title"
                 android:layout_marginTop="2dp"
                 style="@style/Font.Regular.14"/>
         </LinearLayout>
@@ -51,6 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="البقرة"
+            android:id="@+id/tv_arabic_title"
             android:layout_gravity="center_vertical"
             style="@style/Font.Regular.18"
             android:textColor="@color/green"/>

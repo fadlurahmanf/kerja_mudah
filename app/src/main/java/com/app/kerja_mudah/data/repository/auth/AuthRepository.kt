@@ -44,7 +44,8 @@ class AuthRepository @Inject constructor(
         }
 
     val isLoggedIn: Boolean
-        get() = accessToken != null && myProfile != null
+//        get() = accessToken != null && myProfile != null
+        get() = true
 
     var totalUnreadOrderService:Int ?= null
     get() {

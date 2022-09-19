@@ -13,6 +13,7 @@ import com.app.kerja_mudah.data.repository.AppCoreRepository
 import com.app.kerja_mudah.databinding.ActivityLandingPageBinding
 import com.app.kerja_mudah.di.component.LandingPageComponent
 import com.app.kerja_mudah.ui.auth.LoginActivity
+import com.app.kerja_mudah.ui.home.HomeActivity
 import com.app.kerja_mudah.ui.landing_page.adapter.BannerAdapter
 import com.app.kerja_mudah.ui.landing_page.widget.ChooseLanguageDialog
 import java.util.*
@@ -94,6 +95,11 @@ class LandingPageActivity : BaseActivity<ActivityLandingPageBinding>(ActivityLan
     private fun initAction() {
         binding?.btnLogin?.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding?.btnDiscoverJob?.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }
