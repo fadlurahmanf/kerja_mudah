@@ -126,7 +126,7 @@
             android:exported="false"
             android:theme="@style/NoActionBar2" />
         <activity
-            android:name=".ui.CropImageActivity"
+            android:name=".ui.core.CropImageActivity"
             android:exported="false" />
         <activity
             android:name=".ui.core.CameraIdCardActivity"

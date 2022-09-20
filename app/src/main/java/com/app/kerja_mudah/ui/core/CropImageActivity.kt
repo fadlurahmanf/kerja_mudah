@@ -1,9 +1,7 @@
-package com.app.kerja_mudah.ui
+package com.app.kerja_mudah.ui.core
 
 import android.graphics.Bitmap
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.app.kerja_mudah.base.BaseActivity

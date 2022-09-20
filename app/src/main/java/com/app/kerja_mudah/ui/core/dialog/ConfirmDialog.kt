@@ -1,6 +1,7 @@
 package com.app.kerja_mudah.ui.core.dialog
 
 import android.view.View
+import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseDialog
 import com.app.kerja_mudah.databinding.DialogConfirmBinding
 
@@ -36,6 +37,10 @@ class ConfirmDialog:BaseDialog<DialogConfirmBinding>(DialogConfirmBinding::infla
 
     fun setPositiveListener(function: () -> Unit){
         this.positiveListener = function
+    }
+
+    override fun getTheme(): Int {
+        return R.style.WhiteRoundedDialog
     }
 
     override fun setup() {

@@ -9,7 +9,6 @@ import androidx.core.content.ContextCompat
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseCamera
 import com.app.kerja_mudah.databinding.ActivityCameraIdCardBinding
-import com.app.kerja_mudah.ui.CropImageActivity
 import com.app.kerja_mudah.ui.core.callback.PrepareCameraCallBack
 import com.otaliastudios.cameraview.CameraListener
 import com.otaliastudios.cameraview.CameraOptions
@@ -128,7 +127,8 @@ class CameraIdCardActivity : BaseCamera<ActivityCameraIdCardBinding>(ActivityCam
     private val cropActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         if (it.resultCode == RESULT_OK){
             if (it.data?.getStringExtra(CropImageActivity.PATH_RESULT) != null){
-                intent.putExtra(CameraIdCardActivity.PATH_RESULT, it.data?.getStringExtra(CropImageActivity.PATH_RESULT))
+                intent.putExtra(CameraIdCardActivity.PATH_RESULT, it.data?.getStringExtra(
+                    CropImageActivity.PATH_RESULT))
                 setResult(RESULT_OK, intent)
                 finish()
             }
