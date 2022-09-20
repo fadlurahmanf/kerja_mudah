@@ -159,4 +159,10 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
         component = appComponent.homeComponent().create()
         component.inject(this)
     }
+
+    private fun testBranch(){
+        // TES BRANCH MAIN
+        // TES BRANCH MAIN
+        // TES BRANCH MAIN
+    }
 }
