@@ -160,9 +160,9 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
         component.inject(this)
     }
 
-    private fun testBranchStaging(){
-        // TES BRANCH STAGING 19:32
-        // TES BRANCH STAGING 19:32
-        // TES BRANCH STAGING 19:32
+    private fun testBranchMain(){
+        // TES BRANCH Main 19:33
+        // TES BRANCH Main 19:33
+        // TES BRANCH Main 19:33
     }
 }
