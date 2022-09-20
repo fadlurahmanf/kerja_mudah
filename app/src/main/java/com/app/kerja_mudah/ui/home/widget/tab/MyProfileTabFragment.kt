@@ -21,6 +21,7 @@ import com.app.kerja_mudah.ui.core.AboutActivity
 import com.app.kerja_mudah.ui.core.LegalActivity
 import com.app.kerja_mudah.ui.core.dialog.AppVersionDialog
 import com.app.kerja_mudah.ui.freelancer.SelectFreelancerCategoryActivity
+import com.app.kerja_mudah.ui.home.HomeActivity
 import com.app.kerja_mudah.ui.service.ServiceOrderActivity
 import com.bumptech.glide.Glide
 import javax.inject.Inject
@@ -57,12 +58,18 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
 
     private fun initAction() {
         binding?.tvLogout?.setOnClickListener {
-            authRepository.accessToken = null
-            authRepository.myProfile = null
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            requireActivity().finish()
+            (requireActivity() as HomeActivity).showConfirmDialog(
+                title = "Logout?",
+                content = "Are you sure you want to logout?",
+                negativeText = "Yes, Logout",
+                positiveText = "Cancel"
+            )
+//            authRepository.accessToken = null
+//            authRepository.myProfile = null
+//            val intent = Intent(requireContext(), LoginActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            startActivity(intent)
+//            requireActivity().finish()
         }
         binding?.llChat?.setOnClickListener {
             val intent = Intent(requireContext(), AllChatRoomActivity::class.java)

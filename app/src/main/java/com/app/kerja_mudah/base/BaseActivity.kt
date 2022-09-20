@@ -14,6 +14,7 @@ import androidx.viewbinding.ViewBinding
 import com.app.kerja_mudah.BaseApp
 import com.app.kerja_mudah.di.component.ApplicationComponent
 import com.app.kerja_mudah.ui.core.dialog.BasicLoadingDialog
+import com.app.kerja_mudah.ui.core.dialog.ConfirmDialog
 import com.app.kerja_mudah.ui.core.dialog.LoadingDialog
 import com.app.kerja_mudah.ui.core.dialog.OkDialog
 import com.google.android.material.snackbar.Snackbar
@@ -121,6 +122,41 @@ abstract class BaseActivity<VB:ViewBinding>(
             okDialog?.setListener(listener)
             okDialog?.show(supportFragmentManager, OkDialog::class.java.simpleName)
         }
+    }
+
+    private var confirmDialog:ConfirmDialog ?= null
+    fun showConfirmDialog(
+        title:String ?= null,
+        content:String ?= null,
+        negativeText:String ?= null,
+        positiveText:String ?= null,
+        cancelable:Boolean ?= null,
+        negativeListener:() -> Unit = {
+            dismissOkDialog()
+        },
+        positiveListener:() -> Unit = {
+            dismissOkDialog()
+        }
+    ){
+        dismissConfirmDialog()
+        val bundle = Bundle()
+        bundle.putString(ConfirmDialog.TITLE, title)
+        bundle.putString(ConfirmDialog.CONTENT, content)
+        bundle.putString(ConfirmDialog.NEGATIVE_TEXT, negativeText)
+        bundle.putString(ConfirmDialog.POSITIVE_TEXT, positiveText)
+        bundle.putBoolean(ConfirmDialog.CANCELABLE, cancelable?:true)
+        confirmDialog = ConfirmDialog()
+        confirmDialog?.arguments = bundle
+        confirmDialog?.setNegativeListener(negativeListener)
+        confirmDialog?.setPositiveListener(positiveListener)
+        confirmDialog?.show(supportFragmentManager, ConfirmDialog::class.java.simpleName)
+    }
+
+    fun dismissConfirmDialog(){
+        if (confirmDialog != null){
+            confirmDialog?.dismiss()
+        }
+        confirmDialog = null
     }
 
     fun dismissOkDialog(){

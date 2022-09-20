@@ -22,10 +22,13 @@
         android:theme="@style/Theme.StarterAppMvvm"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.pdf.FormPdfActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.quran.TafsirSurahActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar1"/>
+            android:theme="@style/NoActionBar1" />
         <activity
             android:name=".ui.quran.SearchSurahActivity"
             android:exported="false"
