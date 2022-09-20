@@ -165,10 +165,4 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
         // TES BRANCH MAIN
         // TES BRANCH MAIN
     }
-
-    private fun testBranch(){
-        // TES BRANCH STAGING
-        // TES BRANCH STAGING
-        // TES BRANCH STAGING
-    }
 }
