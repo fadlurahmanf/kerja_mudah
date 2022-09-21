@@ -148,8 +148,18 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
             .placeholder(ContextCompat.getDrawable(requireContext(), R.drawable.light_grey_solid))
             .centerCrop()
             .into(binding!!.ivMyProfilePicture)
-        binding?.tvFullName?.text = authRepository.myProfile?.email
+        if (authRepository.isLoggedIn){
+            binding?.tvFullName?.text = authRepository.myProfile?.email
+        }
+        if (!authRepository.isLoggedIn){
+            binding?.llGroupAccount?.visibility = View.GONE
+            binding?.llGroupFreelancer?.visibility = View.GONE
+            binding?.tvLogout?.visibility = View.GONE
+        }
+        refreshBadgeOrderServiceView()
+    }
 
+    private fun refreshBadgeOrderServiceView(){
         if ((authRepository.totalUnreadOrderService?:0) > 0){
             binding?.tvTotalUnreadOrderService?.visibility = View.VISIBLE
         }else{

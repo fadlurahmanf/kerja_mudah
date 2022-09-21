@@ -35,6 +35,7 @@
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:id="@+id/iv_my_profile_picture"
+                    android:src="@drawable/il_emoji_people"
                     app:shapeAppearanceOverlay="@style/ImageViewCircle"
                     android:layout_gravity="center"
                     android:background="@color/white" />
@@ -48,17 +49,29 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Name"
+                        android:text="Hi, Guest!"
                         android:id="@+id/tv_full_name"
                         style="@style/Font.SemiBold.16"
                         android:textColor="@color/white"/>
-                    <View
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="10dp"/>
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/solid_white_corner_25"
+                        style="@style/Font.Bold.14"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/green"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/gotham_bold"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="7dp"
+                        android:text="Sign In"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
+                        android:id="@+id/ll_role"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone"
                         android:gravity="center_vertical">
                         <ImageView
                             android:layout_width="15dp"
@@ -88,127 +101,139 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="AKUN"
-                        android:layout_gravity="left"
-                        android:paddingHorizontal="10dp"
-                        android:layout_marginTop="10dp"
-                        style="@style/Font.Bold.16"
-                        android:textColor="@color/grey"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ll_chat"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:layout_marginTop="10dp">
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_chat"
-                            android:padding="10dp"
-                            app:tint="@color/green"/>
+                        android:id="@+id/ll_group_account"
+                        android:orientation="vertical">
                         <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Chat"
-                            style="@style/Font.Regular.16"
-                            android:textColor="@color/dark_blue"/>
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/ic_forward"
-                            app:tint="@color/green"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/ll_service_order"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:layout_marginTop="5dp">
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_important_delivery"
-                            android:padding="10dp"
-                            app:tint="@color/green"/>
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
+                            android:text="AKUN"
+                            android:layout_gravity="left"
+                            android:paddingHorizontal="10dp"
+                            android:layout_marginTop="10dp"
+                            style="@style/Font.Bold.16"
+                            android:textColor="@color/grey"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Orders"
-                            style="@style/Font.Regular.16"
-                            android:textColor="@color/dark_blue"/>
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:id="@+id/tv_total_unread_order_service"
-                            android:background="@drawable/orange_circle"
-                            android:layout_marginRight="5dp"
+                            android:id="@+id/ll_chat"
                             android:gravity="center_vertical"
-                            android:layout_marginTop="2dp"
-                            android:layout_gravity="center_vertical"/>
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/ic_forward"
-                            app:tint="@color/green"/>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="10dp"
+                            android:layout_marginTop="10dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/ic_chat"
+                                android:padding="10dp"
+                                app:tint="@color/green"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="Chat"
+                                style="@style/Font.Regular.16"
+                                android:textColor="@color/dark_blue"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_forward"
+                                app:tint="@color/green"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ll_service_order"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="10dp"
+                            android:layout_marginTop="5dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/ic_important_delivery"
+                                android:padding="10dp"
+                                app:tint="@color/green"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="Orders"
+                                style="@style/Font.Regular.16"
+                                android:textColor="@color/dark_blue"/>
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:id="@+id/tv_total_unread_order_service"
+                                android:background="@drawable/orange_circle"
+                                android:layout_marginRight="5dp"
+                                android:gravity="center_vertical"
+                                android:layout_marginTop="2dp"
+                                android:layout_gravity="center_vertical"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_forward"
+                                app:tint="@color/green"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="6dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/light_grey_opacity_40"/>
                     </LinearLayout>
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="6dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/light_grey_opacity_40"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="FREELANCER"
-                        android:layout_gravity="left"
-                        android:paddingHorizontal="10dp"
-                        android:layout_marginTop="10dp"
-                        style="@style/Font.Bold.16"
-                        android:textColor="@color/grey"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ll_register_as_freelancer"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:layout_marginTop="5dp">
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_connect"
-                            android:padding="10dp"
-                            app:tint="@color/green"/>
+                        android:orientation="vertical"
+                        android:id="@+id/ll_group_freelancer">
                         <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Register As Freelancer"
-                            style="@style/Font.Regular.16"
-                            android:textColor="@color/dark_blue"/>
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/ic_forward"
-                            app:tint="@color/green"/>
+                            android:text="FREELANCER"
+                            android:layout_gravity="left"
+                            android:paddingHorizontal="10dp"
+                            android:layout_marginTop="10dp"
+                            style="@style/Font.Bold.16"
+                            android:textColor="@color/grey"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ll_register_as_freelancer"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="10dp"
+                            android:layout_marginTop="5dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/ic_connect"
+                                android:padding="10dp"
+                                app:tint="@color/green"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="Register As Freelancer"
+                                style="@style/Font.Regular.16"
+                                android:textColor="@color/dark_blue"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_forward"
+                                app:tint="@color/green"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="6dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/light_grey_opacity_40"/>
                     </LinearLayout>
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="6dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/light_grey_opacity_40"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

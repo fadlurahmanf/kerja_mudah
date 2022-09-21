@@ -50,7 +50,7 @@
             style="@style/Font.Thin.14"
             android:textColor="@color/green"
             android:fontFamily="@font/notosans_thin"
-            android:background="@drawable/white_corner_15"/>
+            android:background="@drawable/solid_white_corner_15"/>
         <android.widget.Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"

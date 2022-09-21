@@ -80,7 +80,7 @@
 
     <!-- White Rounded Dialog-->
     <style name="WhiteRoundedDialog" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="android:windowBackground">@drawable/white_corner_15</item>
+        <item name="android:windowBackground">@drawable/solid_white_corner_15</item>
     </style>
 
     <style name="ProgressBarGreen">
