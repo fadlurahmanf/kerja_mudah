@@ -148,6 +148,11 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
             .placeholder(ContextCompat.getDrawable(requireContext(), R.drawable.light_grey_solid))
             .centerCrop()
             .into(binding!!.ivMyProfilePicture)
+        if (!authRepository.isLoggedIn){
+            binding?.myProfileTitle?.text = ""
+        }else{
+            binding?.myProfileTitle?.text = "My Profile"
+        }
         if (authRepository.isLoggedIn){
             binding?.tvFullName?.text = authRepository.myProfile?.email
         }

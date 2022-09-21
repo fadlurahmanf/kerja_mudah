@@ -22,6 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="My Profile"
+                android:id="@+id/my_profile_title"
                 style="@style/Font.Bold.16"
                 android:layout_marginTop="30dp"
                 android:textColor="@color/white"/>
