@@ -51,14 +51,14 @@ class LandingPageActivity : BaseActivity<ActivityLandingPageBinding>(ActivityLan
         for (i in tes.indices){
             if (i != currentIndex){
                 val view = ImageView(applicationContext)
-                var lp = LinearLayout.LayoutParams(50, 50)
+                val lp = LinearLayout.LayoutParams(30, 30)
                 lp.setMargins(10, 0, 10, 0)
                 view.layoutParams = lp
                 view.background = ContextCompat.getDrawable(this, R.drawable.yellow_indicator_inactive)
                 tes[i] = view
             }else{
                 val view = ImageView(applicationContext)
-                var lp = LinearLayout.LayoutParams(135, 50)
+                val lp = LinearLayout.LayoutParams(135, 30)
                 lp.setMargins(10, 0, 10, 0)
                 view.layoutParams = lp
                 view.background = ContextCompat.getDrawable(this, R.drawable.yellow_indicator_active)
@@ -74,14 +74,14 @@ class LandingPageActivity : BaseActivity<ActivityLandingPageBinding>(ActivityLan
     private fun refreshIndicator(currentIndex: Int){
         for (i in 0 until (binding?.llIndicator?.childCount?:0)){
             if (i != currentIndex){
-                var view = binding?.llIndicator?.getChildAt(i) as ImageView
-                val lp = LinearLayout.LayoutParams(50, 50)
+                val view = binding?.llIndicator?.getChildAt(i) as ImageView
+                val lp = LinearLayout.LayoutParams(30, 30)
                 lp.setMargins(10, 0, 10, 0)
                 view.layoutParams = lp
                 view.background = ContextCompat.getDrawable(this, R.drawable.yellow_indicator_inactive)
             }else{
-                var view = binding?.llIndicator?.getChildAt(i) as ImageView
-                val lp = LinearLayout.LayoutParams(135, 50)
+                val view = binding?.llIndicator?.getChildAt(i) as ImageView
+                val lp = LinearLayout.LayoutParams(135, 30)
                 lp.setMargins(10, 0, 10, 0)
                 view.layoutParams = lp
                 view.background = ContextCompat.getDrawable(this, R.drawable.yellow_indicator_active)
