@@ -10,6 +10,10 @@ def localProperties = new Properties()
 localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
+    signingConfigs {
+        release {}
+        debug {}
+    }
     compileSdkVersion 31
     buildToolsVersion "30.0.2"
 
@@ -27,6 +31,7 @@ android {
         buildConfigField "String", "BASE_QURAN_URL", localProperties["BASE_QURAN_URL"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
     }
     buildFeatures{
         viewBinding true
@@ -38,8 +43,14 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "app-${variant.name} ${variant.versionName} (${variant.versionCode}).apk"
+                }
+            }
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
