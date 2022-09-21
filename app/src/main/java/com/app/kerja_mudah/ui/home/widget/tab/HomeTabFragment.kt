@@ -15,6 +15,7 @@ import androidx.work.WorkManager
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseFragment
 import com.app.kerja_mudah.base.BaseState
+import com.app.kerja_mudah.core.extension.setLightStatusBarColor
 import com.app.kerja_mudah.core.worker.core.CacheWorker
 import com.app.kerja_mudah.data.repository.freelancer.FreelancerRepository
 import com.app.kerja_mudah.data.response.core.AdsResponse
@@ -40,6 +41,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
 
     var bundle:Bundle ?= null
     override fun setup(savedInstanceState: Bundle?) {
+        requireActivity().setLightStatusBarColor(false)
         initAction()
         initAdsBannerAdapter()
         initFreelancerAdapter()

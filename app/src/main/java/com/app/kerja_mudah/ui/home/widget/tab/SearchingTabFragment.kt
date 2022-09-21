@@ -3,6 +3,7 @@ package com.app.kerja_mudah.ui.home.widget.tab
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.app.kerja_mudah.base.BaseFragment
+import com.app.kerja_mudah.core.extension.setLightStatusBarColor
 import com.app.kerja_mudah.databinding.FragmentSearchingTabBinding
 import com.app.kerja_mudah.di.component.HomeComponent
 import com.app.kerja_mudah.ui.home.adapter.SearchingTabAdapter
@@ -18,6 +19,7 @@ class SearchingTabFragment : BaseFragment<FragmentSearchingTabBinding>(FragmentS
     companion object {}
 
     override fun setup(savedInstanceState: Bundle?) {
+        this.requireActivity().setLightStatusBarColor(true)
         initAdapter()
         viewModel.getAllJobCategory()
         initObserver()

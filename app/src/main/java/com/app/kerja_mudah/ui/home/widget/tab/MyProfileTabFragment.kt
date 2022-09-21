@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import com.app.kerja_mudah.BuildConfig
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseFragment
+import com.app.kerja_mudah.core.extension.setLightStatusBarColor
 import com.app.kerja_mudah.core.receiver.CoreReceiver
 import com.app.kerja_mudah.data.repository.auth.AuthRepository
 import com.app.kerja_mudah.databinding.FragmentMyProfileTabBinding
@@ -30,6 +31,7 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
     private lateinit var component: HomeComponent
 
     override fun setup(savedInstanceState: Bundle?) {
+        requireActivity().setLightStatusBarColor(false)
         binding?.tvVersionApp?.text = BuildConfig.VERSION_NAME
         initView()
         initAction()
