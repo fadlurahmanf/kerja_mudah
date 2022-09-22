@@ -2,10 +2,7 @@ package com.app.kerja_mudah.ui.freelancer
 
 import android.content.res.ColorStateList
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseActivity
@@ -28,20 +25,18 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
     private var freelancer:FreelancerResponse ?= null
     override fun initSetup() {
         freelancer = intent.getParcelableExtra(FREELANCER)
-        list.clear()
-        list.addAll(ArrayList(
-            freelancer?.review?.data?.map { detail ->
-                ReviewMapper().toReviewModel(detail)
-            }?.toList() ?: listOf()
-        ))
         initAdapter()
-        if (freelancer?.id != null){
-            viewModel.getAllReviewByFreelancerId(freelancer?.id!!)
-        }else{
-
-        }
         initAction()
         initObserver()
+
+        if (freelancer?.id == null){
+            showSnackBar("Freelancer id is required")
+            return
+        }
+
+        if (freelancer?.id != null){
+            viewModel.getAllReviewByFreelancerId(freelancer?.id!!)
+        }
     }
 
     private fun initAction() {
@@ -54,7 +49,6 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
             binding?.tvFilterAll?.background = ContextCompat.getDrawable(this, R.drawable.green_corner_35)
             binding?.tvFilterAll?.setTextColor(ContextCompat.getColor(this, R.color.white))
             list.clear()
-            list.addAll(listInitialize)
             adapter.notifyDataSetChanged()
         }
 
@@ -64,7 +58,6 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
             binding?.ivStar5?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white))
             binding?.tvStar5?.setTextColor(ContextCompat.getColor(this, R.color.white))
             list.clear()
-            list.addAll(listInitialize.filter { it.star == 5 })
             adapter.notifyDataSetChanged()
         }
 
@@ -74,7 +67,6 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
             binding?.ivStar4?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white))
             binding?.tvStar4?.setTextColor(ContextCompat.getColor(this, R.color.white))
             list.clear()
-            list.addAll(listInitialize.filter { it.star == 4 })
             adapter.notifyDataSetChanged()
         }
 
@@ -84,7 +76,6 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
             binding?.ivStar3?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white))
             binding?.tvStar3?.setTextColor(ContextCompat.getColor(this, R.color.white))
             list.clear()
-            list.addAll(listInitialize.filter { it.star == 3 })
             adapter.notifyDataSetChanged()
         }
 
@@ -94,7 +85,6 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
             binding?.ivStar2?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white))
             binding?.tvStar2?.setTextColor(ContextCompat.getColor(this, R.color.white))
             list.clear()
-            list.addAll(listInitialize.filter { it.star == 2 })
             adapter.notifyDataSetChanged()
         }
 
@@ -104,7 +94,6 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
             binding?.ivStar1?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white))
             binding?.tvStar1?.setTextColor(ContextCompat.getColor(this, R.color.white))
             list.clear()
-            list.addAll(listInitialize.filter { it.star == 1 })
             adapter.notifyDataSetChanged()
         }
     }
@@ -144,15 +133,13 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
             }else if (it.state == BaseState.SUCCESS){
                 binding?.progress?.visibility = View.GONE
                 binding?.rvReview?.visibility = View.VISIBLE
-                listInitialize.clear()
-                listInitialize.addAll(ArrayList(
-                    it.data?.map { detail ->
-                        ReviewMapper().toReviewModel(detail)
+                list.clear()
+                list.addAll(ArrayList(
+                    it.data?.data?.map { detail ->
+                        ReviewMapper.toReviewModel(detail)
                     }?.toList() ?: listOf()
                 ))
-                list.clear()
-                list.addAll(listInitialize)
-                adapter.notifyDataSetChanged()
+                adapter.setList(list)
             }
 
             if (it.state == BaseState.FAILED){
@@ -165,10 +152,10 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
     lateinit var viewModel:FreelancerReviewViewModel
 
     private lateinit var adapter: FreelancerReviewAdapter
-    private var listInitialize = arrayListOf<ReviewDetailModel>()
     private var list:ArrayList<ReviewDetailModel> = arrayListOf()
     private fun initAdapter() {
-        adapter = FreelancerReviewAdapter(list, R.layout.item_review_2)
+        adapter = FreelancerReviewAdapter()
+        adapter.setList(list)
         binding?.rvReview?.adapter = adapter
     }
 

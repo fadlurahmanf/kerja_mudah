@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="REVIEW FREELANCER"
+            android:text="REVIEW"
             style="@style/Font.Bold.16"
             android:textColor="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -214,7 +214,7 @@
         app:layout_constraintTop_toBottomOf="@id/sv_filter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_review_2"/>
+        tools:listitem="@layout/item_review"/>
 
     <ProgressBar
         android:layout_width="wrap_content"

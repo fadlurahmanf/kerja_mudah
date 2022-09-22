@@ -28,21 +28,36 @@ fun Date.formatDate2():String?{
         val diffInHours: Long = TimeUnit.MILLISECONDS.toHours(diffInMillisecond)
         val diffInMin: Long = TimeUnit.MILLISECONDS.toMinutes(diffInMillisecond)
         val diffInSec: Long = TimeUnit.MILLISECONDS.toSeconds(diffInMillisecond)
-        if (diffInDays > 0){
-            /** Output [ 11-05-2022 ] */
-            val sdf = SimpleDateFormat("d-MM-yyyy")
-            return sdf.format(this)
-        }else if (diffInHours > 0 || diffInMin > 0){
-            /** Output [ 08:40 ] */
+        if (diffInDays < 1){
             val sdf = SimpleDateFormat("HH:mm")
-            return sdf.format(this)
-        }else if (diffInSec > 0){
-            return "just now"
+            return "Today, ${sdf.format(this)}"
+        }else if (diffInDays >= 1 || diffInDays < 2){
+            val sdf = SimpleDateFormat("HH:mm")
+            return "Yesterday, ${sdf.format(this)}"
+        }else if (diffInDays < 7){
+            return "${diffInDays}d ago"
+        }else if (diffInDays < 14){
+            return "1w ago"
         }else{
-            /** Output [ 11-05-2022 ] */
-            val sdf = SimpleDateFormat("d-MM-yyyy")
+            val sdf = SimpleDateFormat("d MMM yyyy")
             return sdf.format(this)
         }
+
+//        if (diffInDays > 0){
+//            /** Output [ 11-05-2022 ] */
+//            val sdf = SimpleDateFormat("d-MM-yyyy")
+//            return sdf.format(this)
+//        }else if (diffInHours > 0 || diffInMin > 0){
+//            /** Output [ 08:40 ] */
+//            val sdf = SimpleDateFormat("HH:mm")
+//            return sdf.format(this)
+//        }else if (diffInSec > 0){
+//            return "just now"
+//        }else{
+//            /** Output [ 11-05-2022 ] */
+//            val sdf = SimpleDateFormat("d-MM-yyyy")
+//            return sdf.format(this)
+//        }
     }catch (e:Exception){
         return null
     }

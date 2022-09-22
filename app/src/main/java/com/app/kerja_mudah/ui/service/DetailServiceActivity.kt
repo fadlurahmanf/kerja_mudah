@@ -74,7 +74,8 @@ class DetailServiceActivity : BaseActivity<ActivityDetailServiceBinding>(Activit
     private lateinit var reviewAdapter:FreelancerReviewAdapter
     private var listReview:ArrayList<ReviewDetailModel> = arrayListOf()
     private fun initAdapter() {
-        reviewAdapter = FreelancerReviewAdapter(listReview)
+        reviewAdapter = FreelancerReviewAdapter()
+        reviewAdapter.setList(listReview)
         binding?.rvReview?.adapter = reviewAdapter
 
         vpImageAdapter = VPImageAdapter()
@@ -125,10 +126,10 @@ class DetailServiceActivity : BaseActivity<ActivityDetailServiceBinding>(Activit
                 listImage.addAll(it.serviceDetailData?.highlightPhoto?: arrayListOf())
                 vpImageAdapter.setList(listImage)
 
-                listReview.clear()
-                listReview.addAll(ArrayList(it.serviceDetailData?.review?.data?.map { detail ->
-                    ReviewMapper().toReviewModel(detail)
-                }?.toList()?: listOf()))
+//                listReview.clear()
+//                listReview.addAll(ArrayList(it.serviceDetailData?.review?.data?.map { detail ->
+//                    ReviewMapper.toReviewModel(detail)
+//                }?.toList()?: listOf()))
 
             }else if (it.getDetailState == BaseState.LOADING){
                 showBasicLoadingDialog()

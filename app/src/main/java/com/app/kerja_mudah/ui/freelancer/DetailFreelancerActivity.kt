@@ -78,7 +78,7 @@ class DetailFreelancerActivity : BaseActivity<ActivityDetailFreelancerBinding>(A
                 listReview.clear()
                 listReview.addAll(ArrayList(
                     it.data?.review?.data?.map { detail ->
-                        ReviewMapper().toReviewModel(detail)
+                        ReviewMapper.toReviewModel(detail)
                     }?.toList()?: listOf()
                 ))
                 reviewAdapter.notifyDataSetChanged()
@@ -158,7 +158,8 @@ class DetailFreelancerActivity : BaseActivity<ActivityDetailFreelancerBinding>(A
     private lateinit var photoAdapterVP:VPImageAdapter
     private var listImage:ArrayList<String> = arrayListOf()
     private fun initAdapter(){
-        reviewAdapter = FreelancerReviewAdapter(listReview)
+        reviewAdapter = FreelancerReviewAdapter()
+        reviewAdapter.setList(listReview)
         binding?.rvReview?.adapter = reviewAdapter
 
         serviceAdapter = ServiceAdapter(listServiceDetail)

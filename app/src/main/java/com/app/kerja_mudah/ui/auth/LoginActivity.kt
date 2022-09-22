@@ -91,11 +91,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
     private fun initAction() {
         binding?.btnLogin?.setOnClickListener {
-            viewModel.login(
-                binding?.etEmail?.text?.toString()?:"", binding?.etPassword?.text?.toString()?:""
-            )
-//            val intent = Intent(this, SelectFreelancerCategoryActivity::class.java)
-//            startActivity(intent)
+            if (binding?.etEmail?.text?.isNullOrEmpty() == true || binding?.etPassword?.text?.isNullOrEmpty() == true){
+                return@setOnClickListener
+            }
+            viewModel.login(binding?.etEmail?.text?.toString()?:"",
+                binding?.etPassword?.text?.toString()?:"")
         }
 
         binding?.btnGoogleLogin?.setOnClickListener {

@@ -62,9 +62,25 @@ data class FreelancerResponse(
             var commentPhoto:List<String> ?= null,
             @SerializedName("from")
             var from:ProfileResponse ?= null,
+            @SerializedName("freelancer")
+            var freelancer:Freelancer ?= null,
+            @SerializedName("freelancer_comment")
+            var freelancerComment:String ?= null,
             @SerializedName("created_at")
-            var createdAt:String ?= null
-        ) : Parcelable
+            var createdAt:String ?= null,
+            @SerializedName("updated_at")
+            var updatedAt: String ?= null
+        ) : Parcelable{
+            @Parcelize
+            data class Freelancer(
+                @SerializedName("id")
+                var id:Int ?= null,
+                @SerializedName("freelancer_name")
+                var freelancerName:String ?= null,
+                @SerializedName("photo")
+                var photo:String ?= null
+            ) : Parcelable
+        }
     }
     @Parcelize
     data class Service(

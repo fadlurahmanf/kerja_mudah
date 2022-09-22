@@ -4,6 +4,7 @@ import androidx.annotation.Nullable
 import com.app.kerja_mudah.data.response.core.BaseResponse
 import com.app.kerja_mudah.data.response.freelancer.FreelancerReelResponse
 import com.app.kerja_mudah.data.response.freelancer.FreelancerResponse
+import com.app.kerja_mudah.data.response.freelancer.FreelancerReviewResponse
 import com.app.kerja_mudah.data.response.freelancer.PagingFreelancerResponse
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
@@ -27,7 +28,7 @@ interface FreelancerApi {
     @GET("api/v1/freelancer/{freelancerId}/review/all")
     fun getAllReviewByFreelancerId(
         @Path("freelancerId") id:Int
-    ) : Observable<BaseResponse<List<FreelancerResponse.Review.Detail>>>
+    ) : Observable<BaseResponse<FreelancerReviewResponse>>
 
     @Multipart
     @POST("api/v1/freelancer/register")
