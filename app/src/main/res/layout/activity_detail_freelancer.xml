@@ -107,6 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="10dp"
                 android:id="@+id/ll_highlight_video">
                 <TextView
                     android:layout_width="match_parent"
@@ -115,7 +116,7 @@
                     android:text="Highlight Video"
                     android:layout_marginHorizontal="10dp"
                     style="@style/Font.Bold.16"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/grey"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
@@ -133,33 +134,11 @@
                 android:id="@+id/ll_review"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp">
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_star"
-                    android:id="@+id/iv_star_rating"
-                    android:layout_gravity="center"
-                    app:tint="@color/yellow"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_overall_rating"
-                    android:text="5.0"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="5dp"
-                    style="@style/Font.Bold.14"
-                    android:textColor="@color/yellow"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="1dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0 reviews"
-                    android:id="@+id/tv_total_review"
-                    style="@style/Font.Bold.12"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
+                    android:text="Review"
+                    style="@style/Font.Bold.16"
                     android:textColor="@color/grey"/>
                 <TextView
                     android:layout_width="0dp"
@@ -172,11 +151,18 @@
                     android:gravity="end"/>
             </LinearLayout>
 
+            <com.app.kerja_mudah.custom_view.KerjaMudahReview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/km_review"
+                android:layout_marginTop="10dp"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rv_review"
                 android:overScrollMode="never"
+                android:visibility="gone"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -228,12 +214,6 @@
                 <include layout="@layout/item_freelancer_shimmer"/>
                 <include layout="@layout/item_freelancer_shimmer"/>
             </LinearLayout>
-
-            <!--<TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="40dp"
-                android:text="@string/long_latin"/>-->
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

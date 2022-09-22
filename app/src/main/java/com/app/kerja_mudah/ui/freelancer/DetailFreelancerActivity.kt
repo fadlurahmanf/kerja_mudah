@@ -50,10 +50,12 @@ class DetailFreelancerActivity : BaseActivity<ActivityDetailFreelancerBinding>(A
 
         handler.postDelayed(sliderCallback, 4000)
 
-        if (freelancer?.id != null){
-            viewModel.getDetailFreelancer(freelancer?.id!!)
+        if (freelancer?.id == null){
+            showSnackBar("Freelancer ID is required")
+            return
         }
 
+        viewModel.getDetailFreelancer(freelancer?.id!!)
         initObserver()
     }
 
@@ -114,34 +116,36 @@ class DetailFreelancerActivity : BaseActivity<ActivityDetailFreelancerBinding>(A
             .into(binding?.ivProfilePicture!!)
 
         binding?.tvHighlightTextFreelancer?.text = freelancer?.highlightText?:""
-        if ((freelancer?.review?.totalReview?:0) > 0){
-            val overallRating :Double = (freelancer?.review?.totalStar?:0).toDouble() / (freelancer?.review?.totalReview?:1).toDouble()
-            binding?.tvOverallRating?.text = String.format("%.1f", overallRating)
-            binding?.tvTotalReview?.text = getString(R.string.total_review_type_2, freelancer?.review?.totalReview?:0)
-        }else{
-            binding?.ivStarRating?.visibility = View.GONE
-            binding?.tvOverallRating?.visibility = View.GONE
-            binding?.tvTotalReview?.text = getString(R.string.total_review, 0)
-        }
-
         binding?.tvTotalService?.text = getString(R.string.total_service, freelancer?.service?.totalService?:0)
 
+        refreshReview()
+        refreshServiceFreelancer()
+        refreshHighlightVideo()
+    }
+
+    private fun refreshHighlightVideo(){
+        if (listVideo.isEmpty()){
+            binding?.llHighlightVideo?.visibility = View.GONE
+        }else{
+            binding?.llHighlightVideo?.visibility = View.VISIBLE
+        }
+    }
+
+    private fun refreshServiceFreelancer(){
         if (listServiceDetail.isEmpty()){
             binding?.llServices?.visibility = View.GONE
         }else{
             binding?.llServices?.visibility = View.VISIBLE
         }
+    }
 
+    private fun refreshReview(){
+        binding?.kmReview?.setProgress(freelancer?.review?.oneStar?:0, freelancer?.review?.twoStar?:0,
+        freelancer?.review?.threeStar?:0, freelancer?.review?.fourStar?:0, freelancer?.review?.fiveStar?:0)
         if (listReview.isEmpty()){
             binding?.llReview?.visibility = View.GONE
         }else{
             binding?.llReview?.visibility = View.VISIBLE
-        }
-
-        if (listVideo.isEmpty()){
-            binding?.llHighlightVideo?.visibility = View.GONE
-        }else{
-            binding?.llHighlightVideo?.visibility = View.VISIBLE
         }
     }
 

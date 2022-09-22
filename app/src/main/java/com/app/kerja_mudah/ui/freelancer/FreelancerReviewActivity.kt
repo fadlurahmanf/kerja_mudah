@@ -45,7 +45,7 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
     }
 
     private fun initAction() {
-        binding?.toolbar?.setNavigationOnClickListener {
+        binding?.ivBack?.setOnClickListener {
             onBackPressed()
         }
 

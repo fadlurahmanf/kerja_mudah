@@ -43,7 +43,7 @@ class ServiceAdapter(var list:ArrayList<ServiceDetailResponse>):RecyclerView.Ada
 
         mHolder.title.text = serviceDetail.title ?: ""
         mHolder.description.text = serviceDetail.definition ?: ""
-        mHolder.price.text = "Rp. " + serviceDetail.price?.toDouble()?.toRupiahFormat()?:""
+        mHolder.price.text = serviceDetail.price?.toDouble()?.toRupiahFormat()?:""
 
         mHolder.itemView.setOnClickListener {
             callBack.onServiceClicked(serviceDetail)
