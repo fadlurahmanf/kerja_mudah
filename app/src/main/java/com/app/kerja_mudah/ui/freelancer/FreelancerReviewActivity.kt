@@ -10,6 +10,7 @@ import com.app.kerja_mudah.base.BaseState
 import com.app.kerja_mudah.data.mapper.ReviewMapper
 import com.app.kerja_mudah.data.model.review.ReviewDetailModel
 import com.app.kerja_mudah.data.response.freelancer.FreelancerResponse
+import com.app.kerja_mudah.data.response.service.ServiceDetailResponse
 import com.app.kerja_mudah.databinding.ActivityFreelancerReviewBinding
 import com.app.kerja_mudah.di.component.FreelancerComponent
 import com.app.kerja_mudah.ui.freelancer.adapter.FreelancerReviewAdapter
@@ -20,22 +21,29 @@ class FreelancerReviewActivity : BaseActivity<ActivityFreelancerReviewBinding>(A
 
     companion object{
         const val FREELANCER = "FREELANCER"
+        const val SERVICE = "SERVICE"
     }
 
     private var freelancer:FreelancerResponse ?= null
+    private var service:ServiceDetailResponse ?= null
     override fun initSetup() {
         freelancer = intent.getParcelableExtra(FREELANCER)
+        service = intent.getParcelableExtra(SERVICE)
         initAdapter()
         initAction()
         initObserver()
 
-        if (freelancer?.id == null){
-            showSnackBar("Freelancer id is required")
+        if (freelancer?.id == null && service?.id == null){
+            showSnackBar("Parameter is missing. Try again later!")
             return
         }
 
         if (freelancer?.id != null){
-            viewModel.getAllReviewByFreelancerId(freelancer?.id!!)
+            viewModel.getAllReviewByFreelancerId(freelancer?.id?:-1)
+        }
+
+        if (service?.id != null){
+            viewModel.getAllReviewByServiceId(service?.id?:-1)
         }
     }
 

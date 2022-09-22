@@ -23,6 +23,7 @@ import com.app.kerja_mudah.di.component.ServiceComponent
 import com.app.kerja_mudah.ui.chat.ChatRoomActivity
 import com.app.kerja_mudah.ui.core.PreviewMultipleImageActivity
 import com.app.kerja_mudah.ui.core.adapter.VPImageAdapter
+import com.app.kerja_mudah.ui.freelancer.FreelancerReviewActivity
 import com.app.kerja_mudah.ui.freelancer.adapter.FreelancerReviewAdapter
 import com.app.kerja_mudah.ui.payment.CheckoutActivity
 import com.app.kerja_mudah.ui.service.viewmodel.DetailServiceViewModel
@@ -66,18 +67,18 @@ class DetailServiceActivity : BaseActivity<ActivityDetailServiceBinding>(Activit
             intent.putExtra(CheckoutActivity.SERVICE, detailModel)
             startActivity(intent)
         }
+
+        binding?.tvSeeAllReview?.setOnClickListener {
+            val intent = Intent(this, FreelancerReviewActivity::class.java)
+            intent.putExtra(FreelancerReviewActivity.SERVICE, detailModel)
+            startActivity(intent)
+        }
     }
 
     private lateinit var vpImageAdapter: VPImageAdapter
     private var listImage:ArrayList<String> = arrayListOf()
 
-    private lateinit var reviewAdapter:FreelancerReviewAdapter
-    private var listReview:ArrayList<ReviewDetailModel> = arrayListOf()
     private fun initAdapter() {
-        reviewAdapter = FreelancerReviewAdapter()
-        reviewAdapter.setList(listReview)
-        binding?.rvReview?.adapter = reviewAdapter
-
         vpImageAdapter = VPImageAdapter()
         vpImageAdapter.setCallBack(object : VPImageAdapter.CallBack{
             override fun onClicked(image: String) {
@@ -126,11 +127,6 @@ class DetailServiceActivity : BaseActivity<ActivityDetailServiceBinding>(Activit
                 listImage.addAll(it.serviceDetailData?.highlightPhoto?: arrayListOf())
                 vpImageAdapter.setList(listImage)
 
-//                listReview.clear()
-//                listReview.addAll(ArrayList(it.serviceDetailData?.review?.data?.map { detail ->
-//                    ReviewMapper.toReviewModel(detail)
-//                }?.toList()?: listOf()))
-
             }else if (it.getDetailState == BaseState.LOADING){
                 showBasicLoadingDialog()
             }else if (it.getDetailState == BaseState.FAILED){
@@ -172,11 +168,12 @@ class DetailServiceActivity : BaseActivity<ActivityDetailServiceBinding>(Activit
     }
 
     private fun initView(){
-        binding?.tvServicePrice?.text = "Rp. ${detailModel?.price?.toDouble()?.toRupiahFormat()}"
+        binding?.tvServicePrice?.text = "${detailModel?.price?.toDouble()?.toRupiahFormat()}"
         binding?.tvIndexPhoto?.text = getString(R.string.index_per_total_index, 1, listImage.size)
         binding?.tvServiceTitle?.text = detailModel?.title?:""
         binding?.tvFreelancerName?.text = detailModel?.freelancer?.freelancerName?:""
         binding?.tvEmail?.text = detailModel?.freelancer?.email?:""
+
         Glide.with(binding!!.ivProfilePicture)
             .load(detailModel?.freelancer?.profile?.photo)
             .centerCrop()
@@ -207,14 +204,12 @@ class DetailServiceActivity : BaseActivity<ActivityDetailServiceBinding>(Activit
             binding?.tvServiceDefinition?.highlightColor = Color.TRANSPARENT
             binding?.tvServiceDefinition?.text = builder
         }
+        refreshReview()
+    }
 
-        if (listReview.isNotEmpty()){
-            binding?.rvReview?.visibility = View.VISIBLE
-        }else{
-            binding?.rvReview?.visibility = View.GONE
-        }
-
-        binding?.tvTotalReview?.text = "${listReview.size} Reviews"
+    private fun refreshReview(){
+        binding?.kmReview?.setProgress(detailModel?.review?.oneStar?:0, detailModel?.review?.twoStar?:0,
+        detailModel?.review?.threeStar?:0, detailModel?.review?.fourStar?:0, detailModel?.review?.fiveStar?:0)
     }
 
 }

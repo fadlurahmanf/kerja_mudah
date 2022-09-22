@@ -7,5 +7,5 @@ import com.app.kerja_mudah.data.response.freelancer.FreelancerReviewResponse
 data class FreelancerReviewState(
     var state:BaseState ?= BaseState.IDLE,
     var data:FreelancerReviewResponse ?= null,
-    var error:String ?= null
+    var error:String ?= null,
 )

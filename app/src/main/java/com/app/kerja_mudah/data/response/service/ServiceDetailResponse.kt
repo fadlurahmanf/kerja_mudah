@@ -30,6 +30,16 @@ data class ServiceDetailResponse(
 ) : Parcelable{
     @Parcelize
     data class Review(
+        @SerializedName("one_star")
+        var oneStar:Int ?= null,
+        @SerializedName("two_star")
+        var twoStar:Int ?= null,
+        @SerializedName("three_star")
+        var threeStar:Int ?= null,
+        @SerializedName("four_star")
+        var fourStar:Int ?= null,
+        @SerializedName("five_star")
+        var fiveStar:Int ?= null,
         @SerializedName("total_review")
         var totalReview:Int ?= null,
         @SerializedName("total_star")

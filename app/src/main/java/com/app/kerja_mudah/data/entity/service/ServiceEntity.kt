@@ -20,4 +20,6 @@ class ServiceEntity @Inject constructor(
     fun applyPromoCode(body:JsonObject) = networkService(15).applyPromoCode(authorization = authRepository.accessToken?:"", body = body)
 
     fun getMyServiceOrder() = networkService(15).getMyServiceOrder(authorization = authRepository.accessToken?:"")
+
+    fun getListReviewByServiceId(serviceId:Int) = networkService(15).getReviewByServiceId(serviceId)
 }

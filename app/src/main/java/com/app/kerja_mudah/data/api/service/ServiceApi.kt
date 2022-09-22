@@ -2,6 +2,7 @@ package com.app.kerja_mudah.data.api.service
 
 import androidx.annotation.Nullable
 import com.app.kerja_mudah.data.response.core.BaseResponse
+import com.app.kerja_mudah.data.response.freelancer.FreelancerReviewResponse
 import com.app.kerja_mudah.data.response.service.ServicePromoCodeResponse
 import com.app.kerja_mudah.data.response.service.ServiceDetailResponse
 import com.app.kerja_mudah.data.response.service.ServiceOrderResponse
@@ -31,4 +32,9 @@ interface ServiceApi {
     fun getMyServiceOrder(
         @Header("Authorization") authorization:String,
     ) : Observable<BaseResponse<ArrayList<ServiceOrderResponse>>>
+
+    @GET("api/v1/service/{id}/review/all")
+    fun getReviewByServiceId(
+        @Path("id") serviceId: Int
+    ) : Observable<BaseResponse<FreelancerReviewResponse>>
 }

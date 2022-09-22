@@ -155,7 +155,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="11 reviews"
+                    android:text="Reviews"
                     android:id="@+id/tv_total_review"
                     style="@style/Font.Bold.12"
                     android:textStyle="bold"
@@ -172,16 +172,13 @@
                     android:gravity="end"/>
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.app.kerja_mudah.custom_view.KerjaMudahReview
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rv_review"
-                android:overScrollMode="never"
-                android:layout_marginTop="5dp"
+                android:id="@+id/km_review"
                 app:layout_constraintTop_toBottomOf="@id/ll_review_title"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_review"/>
+                android:layout_marginTop="5dp"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
