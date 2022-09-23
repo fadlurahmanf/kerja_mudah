@@ -155,14 +155,14 @@
                             android:text="Freelancer"
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
-                            style="@style/Font.SemiBold.16"
+                            style="@style/Font.Bold.20"
                             android:paddingHorizontal="15dp"
                             android:textColor="@color/black" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_freelancer_see_all"
-                            android:text="@string/lihat_semua"
+                            android:text="See All"
                             style="@style/Font.SemiBold.14"
                             android:layout_gravity="center_vertical"
                             android:paddingHorizontal="15dp"
@@ -200,6 +200,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="visible"
+                        android:layout_marginTop="10dp"
                         android:id="@+id/ll_reels_freelancer"
                         app:layout_constraintTop_toBottomOf="@id/ll_freelancer_shimmer">
                         <TextView

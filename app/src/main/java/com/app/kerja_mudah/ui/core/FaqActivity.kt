@@ -141,7 +141,7 @@ class FaqActivity : BaseActivity<ActivityFaqBinding>(ActivityFaqBinding::inflate
                 val intent = Intent(this@FaqActivity, FaqDetailActivity::class.java)
                 intent.putExtra(FaqDetailActivity.FAQ, faq)
                 startActivity(intent)
-                CustomIntent.customType(this@FaqActivity, IntentAnimationType.RIGHT_TO_LEFT)
+                CustomIntent.customType(this@FaqActivity, IntentAnimationType.LEFT_TO_RIGHT)
             }
         })
         adapter.setList(mapper.fromListResponseToListModel(list))

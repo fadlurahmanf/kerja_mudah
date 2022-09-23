@@ -6,6 +6,7 @@ import com.app.kerja_mudah.base.BaseFragment
 import com.app.kerja_mudah.core.extension.setLightStatusBarColor
 import com.app.kerja_mudah.databinding.FragmentSearchingTabBinding
 import com.app.kerja_mudah.di.component.HomeComponent
+import com.app.kerja_mudah.ui.home.HomeActivity
 import com.app.kerja_mudah.ui.home.adapter.SearchingTabAdapter
 import com.app.kerja_mudah.ui.home.viewmodel.HomeViewModel
 import com.google.android.material.tabs.TabLayoutMediator
@@ -21,8 +22,15 @@ class SearchingTabFragment : BaseFragment<FragmentSearchingTabBinding>(FragmentS
     override fun setup(savedInstanceState: Bundle?) {
         this.requireActivity().setLightStatusBarColor(true)
         initAdapter()
+        initAction()
         viewModel.getAllJobCategory()
         initObserver()
+    }
+
+    private fun initAction() {
+        binding?.btnLogin?.setOnClickListener {
+            (requireActivity() as HomeActivity).showRequiredLoginDialog()
+        }
     }
 
     private fun initObserver() {}

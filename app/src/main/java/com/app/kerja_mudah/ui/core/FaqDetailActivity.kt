@@ -24,7 +24,7 @@ class FaqDetailActivity : BaseActivity<ActivityFaqDetailBinding>(ActivityFaqDeta
 
     override fun finish() {
         super.finish()
-        CustomIntent.customType(this, IntentAnimationType.LEFT_TO_RIGHT)
+        CustomIntent.customType(this, IntentAnimationType.RIGHT_TO_LEFT)
     }
 
     override fun inject() {

@@ -213,6 +213,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="15dp"
+            android:visibility="gone"
             android:src="@drawable/ic_checkout"/>
         <android.widget.Button
             android:layout_width="0dp"

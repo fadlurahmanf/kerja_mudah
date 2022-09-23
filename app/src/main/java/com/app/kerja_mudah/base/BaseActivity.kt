@@ -13,10 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.viewbinding.ViewBinding
 import com.app.kerja_mudah.BaseApp
 import com.app.kerja_mudah.di.component.ApplicationComponent
-import com.app.kerja_mudah.ui.core.dialog.BasicLoadingDialog
-import com.app.kerja_mudah.ui.core.dialog.ConfirmDialog
-import com.app.kerja_mudah.ui.core.dialog.LoadingDialog
-import com.app.kerja_mudah.ui.core.dialog.OkDialog
+import com.app.kerja_mudah.ui.core.dialog.*
 import com.google.android.material.snackbar.Snackbar
 
 typealias InflateActivity<T> = (LayoutInflater) -> T
@@ -98,6 +95,20 @@ abstract class BaseActivity<VB:ViewBinding>(
 
     fun showSnackBar(message: String?, typeLong:Int?=null){
         Snackbar.make(binding!!.root, message?:"", typeLong ?: Snackbar.LENGTH_LONG).show()
+    }
+
+    private var requiredLoginDialog:RequiredLoginDialog ?= null
+    fun showRequiredLoginDialog(){
+        dismissRequiredLoginDialog()
+        requiredLoginDialog = RequiredLoginDialog()
+        requiredLoginDialog?.show(supportFragmentManager, RequiredLoginDialog::class.java.simpleName)
+    }
+
+    fun dismissRequiredLoginDialog(){
+        if (requiredLoginDialog != null){
+            requiredLoginDialog?.dismiss()
+        }
+        requiredLoginDialog = null
     }
 
     private var okDialog:OkDialog ?= null

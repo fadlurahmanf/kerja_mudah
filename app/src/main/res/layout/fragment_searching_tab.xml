@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/green_corner_35"
                 android:text="Login"
+                android:id="@+id/btn_login"
                 android:textAllCaps="false"
                 style="@style/Font.Bold.16"
                 android:layout_gravity="center_horizontal"
