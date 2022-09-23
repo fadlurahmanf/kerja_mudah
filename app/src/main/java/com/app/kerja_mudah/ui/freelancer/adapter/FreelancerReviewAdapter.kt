@@ -14,6 +14,7 @@ import com.app.kerja_mudah.R
 import com.app.kerja_mudah.core.extension.formatDate
 import com.app.kerja_mudah.core.extension.formatDate2
 import com.app.kerja_mudah.core.extension.isoDateTimeToDate
+import com.app.kerja_mudah.core.extension.toDate
 import com.app.kerja_mudah.data.model.review.ReviewDetailModel
 import com.bumptech.glide.Glide
 import kotlin.collections.ArrayList
@@ -77,7 +78,7 @@ class FreelancerReviewAdapter : RecyclerView.Adapter<FreelancerReviewAdapter.Vie
             holder.llCommenterStar.addView(listStar[i])
         }
 
-        holder.commentTime.text = review.createdAt?.isoDateTimeToDate()?.formatDate2()
+        holder.commentTime.text = review.createdAt?.toDate()?.formatDate2()?:"null"
         holder.tvComment.text = review.comment?:"Great"
         holder.llFreelancerComment.visibility = View.GONE
         if (review.freelancerComment != null){

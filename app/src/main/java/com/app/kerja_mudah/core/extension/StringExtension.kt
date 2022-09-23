@@ -46,6 +46,19 @@ fun String.decrypt() : String?{
     }
 }
 
+/**
+ * FROM [ 2022-09-23 16:13:22 ]
+ * TO [ DATE ]
+ * */
+fun String.toDate(): Date? {
+    try {
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        return sdf.parse(this)
+    }catch (e:Exception){
+        return null;
+    }
+}
+
 fun String.isoDateTimeToDate(): Date? {
     try {
         if (!this.contains("T", ignoreCase = true) && !this.contains("Z", ignoreCase = true)) return null

@@ -180,9 +180,10 @@ class DetailServiceActivity : BaseActivity<ActivityDetailServiceBinding>(Activit
             .placeholder(ContextCompat.getDrawable(this, R.drawable.placeholder_person))
             .into(binding!!.ivProfilePicture)
 
-        if ((detailModel?.definition?.length?:0) > 50){
+        binding?.tvServiceDefinition?.text = detailModel?.definition?:""
+        if ((detailModel?.definition?.length?:0) > 150){
             val builder = SpannableStringBuilder()
-            val span1 = SpannableString(detailModel?.definition?.substring(0, 150))
+            val span1 = SpannableString(detailModel?.definition?.substring(0, 100))
             val blackForegroundSpan : ForegroundColorSpan = ForegroundColorSpan(Color.BLACK)
             val greenForegroundSpan : ForegroundColorSpan = ForegroundColorSpan(Color.parseColor("#FF019267"))
             span1.setSpan(blackForegroundSpan, 0, span1.length, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
