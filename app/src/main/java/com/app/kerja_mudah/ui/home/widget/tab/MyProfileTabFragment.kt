@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat
 import com.app.kerja_mudah.BuildConfig
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseFragment
-import com.app.kerja_mudah.core.extension.setLightStatusBarColor
 import com.app.kerja_mudah.core.receiver.CoreReceiver
 import com.app.kerja_mudah.data.repository.auth.AuthRepository
 import com.app.kerja_mudah.databinding.FragmentMyProfileTabBinding
@@ -31,7 +30,6 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
     private lateinit var component: HomeComponent
 
     override fun setup(savedInstanceState: Bundle?) {
-        requireActivity().setLightStatusBarColor(false)
         binding?.tvVersionApp?.text = BuildConfig.VERSION_NAME
         initView()
         initAction()
@@ -148,23 +146,8 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
             .placeholder(ContextCompat.getDrawable(requireContext(), R.drawable.light_grey_solid))
             .centerCrop()
             .into(binding!!.ivMyProfilePicture)
-        if (!authRepository.isLoggedIn){
-            binding?.myProfileTitle?.text = ""
-        }else{
-            binding?.myProfileTitle?.text = "My Profile"
-        }
-        if (authRepository.isLoggedIn){
-            binding?.tvFullName?.text = authRepository.myProfile?.email
-        }
-        if (!authRepository.isLoggedIn){
-            binding?.llGroupAccount?.visibility = View.GONE
-            binding?.llGroupFreelancer?.visibility = View.GONE
-            binding?.tvLogout?.visibility = View.GONE
-        }
-        refreshBadgeOrderServiceView()
-    }
+        binding?.tvFullName?.text = authRepository.myProfile?.email
 
-    private fun refreshBadgeOrderServiceView(){
         if ((authRepository.totalUnreadOrderService?:0) > 0){
             binding?.tvTotalUnreadOrderService?.visibility = View.VISIBLE
         }else{
