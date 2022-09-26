@@ -162,6 +162,34 @@ class HomeViewModel @Inject constructor(
             ))
     }
 
+    fun getListJob() {
+        homeStateData.allJobState = BaseState.LOADING
+        _homeState.value = homeStateData
+        disposable().add(jobEntity.getAllJob()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    if (it.code == 200 && it.message == "success") {
+                        homeStateData.allJobState = BaseState.SUCCESS
+                        homeStateData.dataAllJob = it.data
+                        _homeState.value = homeStateData
+                    } else {
+                        homeStateData.allJobState = BaseState.FAILED
+                        homeStateData.errorAllJob = it.message
+                        _homeState.value = homeStateData
+                    }
+                },
+                {
+                    homeStateData.allJobState = BaseState.FAILED
+                    homeStateData.errorAllJob = it.message
+                    _homeState.value = homeStateData
+                },
+                {}
+            ))
+    }
+
+
     fun updateToken(){
         val fcmService = FcmUtils()
         val body = JsonObject()

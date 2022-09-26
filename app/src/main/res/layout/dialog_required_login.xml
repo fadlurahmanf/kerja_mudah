@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/iv_top_content"
+        android:src="@drawable/il_man_shows_gesture_great_idea"
+        android:layout_marginTop="-58dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You must login to access all features in this app"
+        app:layout_constraintTop_toBottomOf="@id/iv_top_content"
+        android:id="@+id/tv_content"
+        style="@style/Font.Regular.16"
+        android:textColor="@color/dark_blue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_content"
+        android:id="@+id/btn_login"
+        android:background="@drawable/solid_green_corner_7"
+        android:text="LOGIN"
+        android:elevation="5dp"
+        android:paddingHorizontal="35dp"
+        android:paddingVertical="10dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/gotham_regular"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/white"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

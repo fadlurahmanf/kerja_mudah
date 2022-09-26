@@ -42,7 +42,8 @@
                 android:overScrollMode="never">
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:paddingBottom="20dp">
                     <androidx.viewpager2.widget.ViewPager2
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -220,24 +221,44 @@
                             tools:listitem="@layout/item_reels"/>
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_job_title"
-                        android:text="@string/pekerjaan"
-                        style="@style/Font.Bold.20"
-                        android:paddingHorizontal="15dp"
-                        android:textColor="@color/black"
+                        android:orientation="horizontal"
+                        android:id="@+id/ll_job_title"
+                        android:layout_marginTop="15dp"
                         app:layout_constraintTop_toBottomOf="@id/ll_reels_freelancer"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        android:layout_marginTop="15dp"/>
+                        android:gravity="center_vertical"
+                        android:layout_marginHorizontal="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_job_title"
+                            android:text="@string/pekerjaan"
+                            style="@style/Font.Bold.20"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="15dp"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_job_see_all"
+                            android:text="See All"
+                            style="@style/Font.SemiBold.14"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/green"/>
+                    </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:overScrollMode="never"
                         android:id="@+id/rv_job"
-                        app:layout_constraintTop_toBottomOf="@id/tv_job_title"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@id/ll_job_title"
                         app:layout_constraintLeft_toLeftOf="parent"
                         tools:listitem="@layout/item_job"
                         android:orientation="horizontal"
@@ -250,9 +271,9 @@
                         android:id="@+id/ll_job_shimmer"
                         android:orientation="horizontal"
                         app:layout_constraintTop_toBottomOf="@id/rv_job">
-                        <include layout="@layout/item_freelancer_shimmer"/>
-                        <include layout="@layout/item_freelancer_shimmer"/>
-                        <include layout="@layout/item_freelancer_shimmer"/>
+                        <include layout="@layout/item_job_shimmer"/>
+                        <include layout="@layout/item_job_shimmer"/>
+                        <include layout="@layout/item_job_shimmer"/>
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

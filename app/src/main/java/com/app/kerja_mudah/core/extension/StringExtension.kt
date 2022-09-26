@@ -59,6 +59,18 @@ fun String.toDate(): Date? {
     }
 }
 
+fun String.toDate(onlyTime:Boolean):Date?{
+    try {
+        if (!onlyTime){
+            return null
+        }
+        val sdf = SimpleDateFormat("HH:mm:ss")
+        return sdf.parse(this)
+    }catch (e:Exception){
+        return null
+    }
+}
+
 fun String.isoDateTimeToDate(): Date? {
     try {
         if (!this.contains("T", ignoreCase = true) && !this.contains("Z", ignoreCase = true)) return null

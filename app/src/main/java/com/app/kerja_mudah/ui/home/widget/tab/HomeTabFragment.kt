@@ -51,6 +51,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
         homeViewModel.getAllAdsBanner()
         homeViewModel.getAllFreelancer()
         homeViewModel.getAllReelFreelancer()
+        homeViewModel.getListJob()
         initObserver()
     }
 
@@ -64,6 +65,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
             binding?.swl?.isRefreshing = true
             homeViewModel.getAllAdsBanner()
             homeViewModel.getAllFreelancer()
+            homeViewModel.getListJob()
         }
 
         binding?.mQuranView?.setOnClickListener {
@@ -127,18 +129,21 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
                 (requireActivity() as HomeActivity).showSnackBar(it.errorMessageAdsBanner)
             }
 
-//            if (it.allJobState == BaseState.SUCCESS){
-//                binding?.swl?.isRefreshing = false
-//                binding?.rvJob?.visibility = View.VISIBLE
-//                binding?.llJobShimmer?.visibility = View.GONE
-//                listJob.clear()
-//                listJob.addAll(it.dataAllJob?: arrayListOf())
-//                jobAdapter.notifyDataSetChanged()
-//            }else{
-//                binding?.swl?.isRefreshing = false
-//                binding?.rvJob?.visibility = View.GONE
-//                binding?.llJobShimmer?.visibility = View.VISIBLE
-//            }
+            if (it.allJobState == BaseState.SUCCESS){
+                binding?.swl?.isRefreshing = false
+                binding?.rvJob?.visibility = View.VISIBLE
+                binding?.llJobShimmer?.visibility = View.GONE
+                listJob.clear()
+                listJob.addAll(it.dataAllJob?: arrayListOf())
+                jobAdapter.setList(listJob)
+            }else{
+                binding?.rvJob?.visibility = View.GONE
+                binding?.llJobShimmer?.visibility = View.VISIBLE
+                if (listJob.isNotEmpty()){
+                    binding?.rvJob?.visibility = View.VISIBLE
+                    binding?.llJobShimmer?.visibility = View.GONE
+                }
+            }
 
             if (it.reelsFreelancerState == BaseState.SUCCESS){
                 listReelFreelancer.clear()
@@ -223,7 +228,8 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
     private lateinit var jobAdapter: JobAdapter
     private var listJob:ArrayList<JobResponse> = arrayListOf()
     private fun initJobAdapter(){
-        jobAdapter = JobAdapter(listJob)
+        jobAdapter = JobAdapter()
+        jobAdapter.setList(listJob)
         binding?.rvJob?.adapter = jobAdapter
     }
 

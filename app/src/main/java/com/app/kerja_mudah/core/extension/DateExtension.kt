@@ -42,22 +42,6 @@ fun Date.formatDate2():String?{
             val sdf = SimpleDateFormat("d MMM yyyy")
             return sdf.format(this)
         }
-
-//        if (diffInDays > 0){
-//            /** Output [ 11-05-2022 ] */
-//            val sdf = SimpleDateFormat("d-MM-yyyy")
-//            return sdf.format(this)
-//        }else if (diffInHours > 0 || diffInMin > 0){
-//            /** Output [ 08:40 ] */
-//            val sdf = SimpleDateFormat("HH:mm")
-//            return sdf.format(this)
-//        }else if (diffInSec > 0){
-//            return "just now"
-//        }else{
-//            /** Output [ 11-05-2022 ] */
-//            val sdf = SimpleDateFormat("d-MM-yyyy")
-//            return sdf.format(this)
-//        }
     }catch (e:Exception){
         return null
     }

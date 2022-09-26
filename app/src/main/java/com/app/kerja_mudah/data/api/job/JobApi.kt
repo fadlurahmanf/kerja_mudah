@@ -13,6 +13,6 @@ interface JobApi {
     @POST("api/job/job-category/all")
     fun getAllJobCategory(@Body body: JsonObject): Observable<BaseResponse<List<JobCategoryResponse>>>
 
-    @GET("api/job/all")
+    @GET("api/v1/job/all")
     fun getAllJob() : Observable<BaseResponse<List<JobResponse>>>
 }
