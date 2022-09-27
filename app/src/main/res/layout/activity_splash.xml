@@ -9,6 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/tv_splash"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -16,5 +17,16 @@
         android:text="Kerjamudah."
         style="@style/Font.Regular.35"
         android:textColor="@color/green"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_splash"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/tv_environment"
+        android:text="DEVELOPMENT"
+        style="@style/Font.Bold.20"
+        android:textColor="@color/red"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

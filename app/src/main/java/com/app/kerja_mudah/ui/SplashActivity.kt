@@ -2,7 +2,9 @@ package com.app.kerja_mudah.ui
 
 import android.content.Intent
 import android.util.Log
+import android.view.View
 import com.app.kerja_mudah.BaseApp
+import com.app.kerja_mudah.BuildConfig
 import com.app.kerja_mudah.base.BaseActivity
 import com.app.kerja_mudah.data.repository.auth.AuthRepository
 import com.app.kerja_mudah.databinding.ActivitySplashBinding
@@ -37,6 +39,13 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
 
 
     override fun initSetup() {
+        if(BuildConfig.ENV == "DEV" || BuildConfig.ENV == "STAGING"){
+            binding?.tvEnvironment?.text = if (BuildConfig.ENV == "DEV") "DEVELOPMENT" else "STAGING"
+            binding?.tvEnvironment?.visibility = View.VISIBLE
+        }else{
+            binding?.tvEnvironment?.text = ""
+            binding?.tvEnvironment?.visibility = View.GONE
+        }
         Timer().schedule(1000){
             if (authRepository.isLoggedIn){
                 val intent = Intent(this@SplashActivity, HomeActivity::class.java)
