@@ -18,6 +18,7 @@ import com.app.kerja_mudah.databinding.ActivityPagingFreelancerBinding
 import com.app.kerja_mudah.di.component.FreelancerComponent
 import com.app.kerja_mudah.ui.freelancer.adapter.FreelancerPagingAdapter
 import com.app.kerja_mudah.ui.freelancer.viewmodel.FreelancerViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
@@ -49,16 +50,26 @@ class PagingFreelancerActivity : BaseActivity<ActivityPagingFreelancerBinding>(A
 
         adapter.addLoadStateListener {
             Log.i(TAG, it.source.toString())
+            Log.i(TAG, it.mediator.toString())
 
-            if (it.mediator?.refresh is LoadState.Loading){
+            if (it.source.refresh is LoadState.Loading){
                 binding?.pb?.visibility = View.VISIBLE
-            }else if (it.mediator?.refresh is LoadState.NotLoading){
+            }else if (it.source.refresh is LoadState.NotLoading){
                 binding?.pb?.visibility = View.GONE
+            }else if (it.source.refresh is LoadState.Error){
+                binding?.pb?.visibility = View.VISIBLE
+                showSnackBar((it.source.refresh as LoadState.Error).error.message?:"", Snackbar.LENGTH_LONG)
             }
 
-            if (it.mediator?.refresh is LoadState.Error){
-                showSnackBar((it.mediator?.refresh as LoadState.Error).error.message)
-            }
+//            if (it.mediator?.refresh is LoadState.Loading){
+//                binding?.pb?.visibility = View.VISIBLE
+//            }else if (it.mediator?.refresh is LoadState.NotLoading){
+//                binding?.pb?.visibility = View.GONE
+//            }
+//
+//            if (it.mediator?.refresh is LoadState.Error){
+//                showSnackBar((it.mediator?.refresh as LoadState.Error).error.message)
+//            }
         }
 
         binding?.rvFreelancer?.canScrollVertically(-1)
