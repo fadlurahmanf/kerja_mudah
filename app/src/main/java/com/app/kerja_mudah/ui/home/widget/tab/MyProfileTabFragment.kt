@@ -22,6 +22,7 @@ import com.app.kerja_mudah.ui.core.LegalActivity
 import com.app.kerja_mudah.ui.core.dialog.AppVersionDialog
 import com.app.kerja_mudah.ui.freelancer.SelectFreelancerCategoryActivity
 import com.app.kerja_mudah.ui.home.HomeActivity
+import com.app.kerja_mudah.ui.landing_page.LandingPageActivity
 import com.app.kerja_mudah.ui.service.ServiceOrderActivity
 import com.bumptech.glide.Glide
 import javax.inject.Inject
@@ -62,14 +63,18 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
                 title = "Logout?",
                 content = "Are you sure you want to logout?",
                 negativeText = "Yes, Logout",
-                positiveText = "Cancel"
+                positiveText = "Cancel",
+                negativeListener = {
+                    authRepository.accessToken = null
+                    authRepository.myProfile = null
+                    val intent = Intent(requireContext(), LandingPageActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    requireActivity().finish()
+                    val intent2 = Intent(requireContext(), LoginActivity::class.java)
+                    startActivity(intent2)
+                }
             )
-//            authRepository.accessToken = null
-//            authRepository.myProfile = null
-//            val intent = Intent(requireContext(), LoginActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//            startActivity(intent)
-//            requireActivity().finish()
         }
         binding?.llChat?.setOnClickListener {
             val intent = Intent(requireContext(), AllChatRoomActivity::class.java)

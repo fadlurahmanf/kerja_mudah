@@ -143,10 +143,10 @@ abstract class BaseActivity<VB:ViewBinding>(
         positiveText:String ?= null,
         cancelable:Boolean ?= null,
         negativeListener:() -> Unit = {
-            dismissOkDialog()
+            confirmDialog?.dismiss()
         },
         positiveListener:() -> Unit = {
-            dismissOkDialog()
+            confirmDialog?.dismiss()
         }
     ){
         dismissConfirmDialog()

@@ -40,28 +40,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:overScrollMode="never">
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="20dp">
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
                     <androidx.viewpager2.widget.ViewPager2
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/vp_banner"
-                        android:layout_marginTop="10dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
+                        android:layout_marginTop="10dp"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/ll_indicator_banner"
-                        app:layout_constraintTop_toBottomOf="@id/vp_banner"
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal"
                         android:gravity="center"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent">
+                        android:layout_gravity="center">
                     </LinearLayout>
 
                     <LinearLayout
@@ -70,8 +66,7 @@
                         android:orientation="horizontal"
                         android:id="@+id/ll_menu"
                         android:layout_marginTop="15dp"
-                        android:gravity="center_vertical"
-                        app:layout_constraintTop_toBottomOf="@id/ll_indicator_banner">
+                        android:gravity="center_vertical">
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -143,9 +138,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:background="@color/white"
-                        app:layout_constraintTop_toBottomOf="@id/ll_menu"
-                        android:paddingVertical="10dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingHorizontal="10dp"
                         android:gravity="center"
                         android:id="@+id/ll_freelancer_title">
                         <TextView
@@ -156,17 +150,15 @@
                             android:text="Freelancer"
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
-                            style="@style/Font.Bold.20"
-                            android:paddingHorizontal="15dp"
+                            style="@style/Font.Bold.18"
                             android:textColor="@color/black" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_freelancer_see_all"
                             android:text="See All"
-                            style="@style/Font.SemiBold.14"
+                            style="@style/Font.Bold.14"
                             android:layout_gravity="center_vertical"
-                            android:paddingHorizontal="15dp"
                             android:textColor="@color/green"
                             app:layout_constraintTop_toBottomOf="@id/vp_banner"
                             app:layout_constraintRight_toRightOf="parent" />
@@ -176,7 +168,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/rv_freelancer"
-                        app:layout_constraintTop_toBottomOf="@id/ll_freelancer_title"
+                        android:layout_marginTop="5dp"
                         android:overScrollMode="never"
                         android:nestedScrollingEnabled="false"
                         android:visibility="visible"
@@ -202,15 +194,14 @@
                         android:orientation="vertical"
                         android:visibility="visible"
                         android:layout_marginTop="10dp"
-                        android:id="@+id/ll_reels_freelancer"
-                        app:layout_constraintTop_toBottomOf="@id/ll_freelancer_shimmer">
+                        android:id="@+id/ll_reels_freelancer">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Recommended Reels Freelancer"
-                            style="@style/Font.Bold.20"
-                            android:textColor="@color/black"
-                            android:layout_marginHorizontal="10dp"/>
+                            style="@style/Font.Bold.18"
+                            android:layout_marginHorizontal="10dp"
+                            android:textColor="@color/black"/>
                         <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -237,9 +228,8 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_job_title"
                             android:text="@string/pekerjaan"
-                            style="@style/Font.Bold.20"
+                            style="@style/Font.Bold.18"
                             android:gravity="center_vertical"
-                            android:paddingHorizontal="15dp"
                             android:textColor="@color/black" />
 
                         <TextView
@@ -247,7 +237,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_job_see_all"
                             android:text="See All"
-                            style="@style/Font.SemiBold.14"
+                            style="@style/Font.Bold.14"
                             android:layout_gravity="center_vertical"
                             android:textColor="@color/green"/>
                     </LinearLayout>
@@ -276,7 +266,7 @@
                         <include layout="@layout/item_job_shimmer"/>
                     </LinearLayout>
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
             </androidx.core.widget.NestedScrollView>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
