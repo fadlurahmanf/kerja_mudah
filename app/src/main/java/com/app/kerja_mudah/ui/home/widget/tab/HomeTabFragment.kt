@@ -33,6 +33,7 @@ import com.app.kerja_mudah.ui.home.adapter.AdsBannerAdapter
 import com.app.kerja_mudah.ui.home.adapter.FreelancerAdapter
 import com.app.kerja_mudah.ui.home.adapter.JobAdapter
 import com.app.kerja_mudah.ui.home.viewmodel.HomeViewModel
+import com.app.kerja_mudah.ui.job.JobDetailActivity
 import com.app.kerja_mudah.ui.quran.QuranInformationActivity
 import javax.inject.Inject
 
@@ -229,8 +230,16 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
     private var listJob:ArrayList<JobResponse> = arrayListOf()
     private fun initJobAdapter(){
         jobAdapter = JobAdapter()
+        jobAdapter.setCallBack(jobCallBack)
         jobAdapter.setList(listJob)
         binding?.rvJob?.adapter = jobAdapter
+    }
+
+    private var jobCallBack = object : JobAdapter.CallBack{
+        override fun onClicked(job: JobResponse) {
+            val intent = Intent(this@HomeTabFragment.requireActivity(), JobDetailActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     @Inject
@@ -255,7 +264,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
     private fun setupIndicator(){
         binding?.llIndicatorBanner?.removeAllViews()
         if (listAdsBanner.size > 0){
-            var adsList = arrayOfNulls<ImageView>(listAdsBanner.size)
+            val adsList = arrayOfNulls<ImageView>(listAdsBanner.size)
             for (i in adsList.indices){
                 val view = ImageView(context)
                 val lp = LinearLayout.LayoutParams(25, 25)

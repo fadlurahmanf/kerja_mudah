@@ -23,7 +23,9 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.job.JobDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar1"/>
         <activity
             android:name=".ui.pdf.FormPdfActivity"
             android:exported="false" />

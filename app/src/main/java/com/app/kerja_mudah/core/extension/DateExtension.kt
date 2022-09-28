@@ -85,3 +85,32 @@ fun Date.formatDate5(): String? {
         return null
     }
 }
+
+/**
+ * Output Variative
+ * */
+fun Date.formatDate6():String?{
+    try {
+        val currentDate = Date()
+        val diffInMillisecond = currentDate.time - this.time
+        val diffInDays: Long = TimeUnit.MILLISECONDS.toDays(diffInMillisecond)
+        val diffInHours: Long = TimeUnit.MILLISECONDS.toHours(diffInMillisecond)
+        val diffInMin: Long = TimeUnit.MILLISECONDS.toMinutes(diffInMillisecond)
+        val diffInSec: Long = TimeUnit.MILLISECONDS.toSeconds(diffInMillisecond)
+        val diffInWeek:Long = 7/diffInDays
+        val diffInMonth:Long = 30/diffInDays
+        if (diffInDays < 1){
+            return "Today"
+        }else if (diffInDays >= 1 || diffInDays < 2){
+            return "Yesterday"
+        }else if (diffInDays < 7){
+            return "${diffInDays}d ago"
+        }else if (diffInWeek < 4){
+            return "${diffInWeek}w ago"
+        }else {
+            return "${diffInMonth}m ago"
+        }
+    }catch (e:Exception){
+        return null
+    }
+}

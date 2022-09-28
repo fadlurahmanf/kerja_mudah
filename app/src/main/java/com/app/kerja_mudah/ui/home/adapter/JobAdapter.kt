@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.core.extension.formatDate4
+import com.app.kerja_mudah.core.extension.formatDate6
 import com.app.kerja_mudah.core.extension.toDate
 import com.app.kerja_mudah.core.extension.toRupiahFormat
 import com.app.kerja_mudah.data.response.job.JobResponse
@@ -18,6 +19,12 @@ import com.bumptech.glide.Glide
 class JobAdapter () : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var list: ArrayList<JobResponse> = arrayListOf()
+
+    private var callback:CallBack ?= null
+
+    fun setCallBack(callBack: CallBack){
+        this.callback = callBack
+    }
 
     private lateinit var context:Context
 
@@ -35,6 +42,7 @@ class JobAdapter () : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         val workHour:TextView = view.findViewById(R.id.tv_total_hour)
         val location:TextView = view.findViewById(R.id.tv_location)
         val workTime:TextView = view.findViewById(R.id.tv_work_time)
+        val jobCreated:TextView = view.findViewById(R.id.tv_job_created)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -59,10 +67,19 @@ class JobAdapter () : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         mHolder.workHour.text = if (job.fullDay == true) "- Full Day" else "- ${job.workHour} Hours"
         mHolder.location.text = job.city?:""
         mHolder.workTime.text = job.workTime?.toDate(true)?.formatDate4()?:""
+        mHolder.jobCreated.text = job.createdAt?.toDate()?.formatDate6()
+
+        mHolder.itemView.setOnClickListener {
+            callback?.onClicked(job)
+        }
 
     }
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    interface CallBack{
+        fun onClicked(job:JobResponse)
     }
 }
