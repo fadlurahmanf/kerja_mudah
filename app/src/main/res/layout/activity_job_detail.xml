@@ -29,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:id="@+id/tv_job_title_toolbar"
             style="@style/Font.Regular.16"
             android:textColor="@color/green"
             app:layout_constraintLeft_toRightOf="@id/iv_back"
@@ -49,6 +50,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/layout_failed">
@@ -77,6 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="JOB TITLE"
+                android:id="@+id/tv_job_title"
                 android:layout_marginTop="15dp"
                 android:paddingHorizontal="10dp"
                 style="@style/Font.Bold.20"
@@ -111,6 +114,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:id="@+id/iv_company_logo"
                     android:src="@drawable/ic_broken_image"/>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -122,12 +126,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Company Title"
+                        android:id="@+id/tv_company_title"
                         style="@style/Font.Regular.16"
                         android:textColor="@color/dark_blue"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Company Location"
+                        android:id="@+id/tv_company_city"
                         android:layout_marginTop="5dp"
                         style="@style/Font.Regular.14"
                         android:textColor="@color/blue"/>
@@ -137,6 +143,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4 days ago - 30 applicants"
+                android:id="@+id/tv_job_detail_notes"
                 style="@style/Font.Regular.12"
                 android:paddingHorizontal="10dp"
                 android:layout_marginTop="10dp" />
@@ -156,6 +163,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="10dp"
+                    android:id="@+id/tv_work_hour"
                     android:layout_height="wrap_content"
                     android:text="Full Time"
                     style="@style/Font.Regular.14"/>
@@ -179,6 +187,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/tv_job_description"
                 android:text="@string/dummy_text_30_word"
                 android:paddingHorizontal="10dp"
                 android:layout_marginTop="10dp"
@@ -198,6 +207,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:orientation="vertical"
+                android:id="@+id/ll_job_desk"
                 android:paddingHorizontal="10dp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -232,6 +242,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:id="@+id/ll_responsibility"
                 android:orientation="vertical"
                 android:paddingHorizontal="10dp">
                 <TextView
@@ -275,6 +286,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:id="@+id/iv_company_logo_2"
                     android:src="@drawable/ic_broken_image"/>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -286,12 +298,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Company Title"
+                        android:id="@+id/tv_company_name_2"
                         style="@style/Font.Regular.16"
                         android:textColor="@color/dark_blue"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Company Location"
+                        android:id="@+id/tv_company_city_2"
                         android:layout_marginTop="5dp"
                         style="@style/Font.Regular.14"
                         android:textColor="@color/blue"/>
@@ -301,6 +315,7 @@
                         android:text="@string/dummy_text_30_word"
                         android:layout_marginTop="5dp"
                         android:maxLines="4"
+                        android:id="@+id/tv_company_description"
                         android:ellipsize="end"
                         style="@style/Font.Regular.14"
                         android:textColor="@color/grey"/>
@@ -308,43 +323,51 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Show More"
+                        android:id="@+id/tv_show_more_company_description"
                         android:layout_marginTop="5dp"
                         style="@style/Font.Bold.12"
                         android:textColor="@color/grey"/>
                 </LinearLayout>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/light_grey"
-                android:layout_marginTop="10dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingHorizontal="10dp"
-                android:layout_marginTop="10dp">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="More Jobs"
-                    style="@style/Font.Bold.16"
-                    android:textColor="@color/dark_blue"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="See All"
-                    style="@style/Font.Bold.14"
-                    android:textColor="@color/green"/>
-            </LinearLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/rv_more_job"
-                android:nestedScrollingEnabled="false"
-                tools:listitem="@layout/item_job"/>
+                android:id="@+id/ll_more_job">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/light_grey"
+                    android:layout_marginTop="10dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="More Jobs"
+                        style="@style/Font.Bold.16"
+                        android:textColor="@color/dark_blue"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="See All"
+                        style="@style/Font.Bold.14"
+                        android:textColor="@color/green"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:id="@+id/rv_more_job"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_job"/>
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

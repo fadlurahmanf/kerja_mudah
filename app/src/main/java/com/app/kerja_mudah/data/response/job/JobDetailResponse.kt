@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class JobResponse(
+data class JobDetailResponse(
     @SerializedName("id")
     var id:Int ?= null,
-    @SerializedName("job_category_id")
-    var jobCategoryId:Int ?= null,
     @SerializedName("name")
     var name:String ?= null,
+    @SerializedName("description")
+    var description:String ?= null,
     @SerializedName("salary")
     var salary:Long ?= null,
     @SerializedName("full_day")
@@ -28,6 +28,10 @@ data class JobResponse(
     var longitude:String ?= null,
     @SerializedName("company")
     var company:Company ?= null,
+    @SerializedName("job_desk")
+    var jobDesk:ArrayList<String> ?= null,
+    @SerializedName("responsibility")
+    var responsibility:ArrayList<String> ?= null,
     @SerializedName("status")
     var status:Boolean ?= null,
     @SerializedName("created_at")

@@ -238,6 +238,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
     private var jobCallBack = object : JobAdapter.CallBack{
         override fun onClicked(job: JobResponse) {
             val intent = Intent(this@HomeTabFragment.requireActivity(), JobDetailActivity::class.java)
+            intent.putExtra(JobDetailActivity.JOB, job)
             startActivity(intent)
         }
     }

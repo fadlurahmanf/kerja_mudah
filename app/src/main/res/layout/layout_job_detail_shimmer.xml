@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        app:layout_constraintTop_toTopOf="parent">
         <com.facebook.shimmer.ShimmerFrameLayout
             android:layout_width="150dp"
             android:layout_height="15dp"

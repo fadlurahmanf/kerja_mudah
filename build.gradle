@@ -2,7 +2,7 @@
 buildscript {
     ext.kotlin_version = "1.5.21"
     ext.dagger_version = "2.39"
-    ext.room_version = "2.4.2"
+    ext.room_version = "2.4.3"
     ext.paging_version = "3.1.1"
     ext.exoplayer_version = "2.18.1"
     ext.work_version = "2.7.1"

@@ -165,7 +165,7 @@ class HomeViewModel @Inject constructor(
     fun getListJob() {
         homeStateData.allJobState = BaseState.LOADING
         _homeState.value = homeStateData
-        disposable().add(jobEntity.getAllJob()
+        disposable().add(jobEntity.getListJob()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
