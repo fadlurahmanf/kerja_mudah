@@ -163,4 +163,7 @@ dependencies {
     implementation("androidx.work:work-runtime:$work_version")
     implementation("androidx.work:work-runtime-ktx:$work_version")
     implementation("androidx.work:work-rxjava2:$work_version")
+
+    // google maps
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 }

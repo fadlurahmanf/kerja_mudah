@@ -89,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingHorizontal="10dp"
+                android:id="@+id/ll_job_location"
                 android:gravity="center_vertical"
                 android:layout_marginTop="3dp">
                 <ImageView

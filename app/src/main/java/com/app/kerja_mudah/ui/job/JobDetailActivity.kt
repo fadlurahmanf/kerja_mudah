@@ -1,5 +1,6 @@
 package com.app.kerja_mudah.ui.job
 
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -34,7 +35,7 @@ class JobDetailActivity : BaseActivity<ActivityJobDetailBinding>(ActivityJobDeta
         jobResponse = intent.getParcelableExtra(JOB)
 
         if (jobResponse?.id == null){
-            showOkDialog("Oops...", content = "Job is required", listener = {
+            showOkDialog("Oops...", content = "Job is required", cancelable = false, listener = {
                 dismissOkDialog()
                 finish()
             })
@@ -58,6 +59,12 @@ class JobDetailActivity : BaseActivity<ActivityJobDetailBinding>(ActivityJobDeta
                 isCompanyShowMore = true
                 binding?.tvCompanyDescription?.maxLines = 999
             }
+        }
+
+        binding?.llJobLocation?.setOnClickListener {
+            val intent = Intent(this, JobLocationActivity::class.java)
+            intent.putExtra(JobLocationActivity.JOB, jobDetailResponse)
+            startActivity(intent)
         }
     }
 

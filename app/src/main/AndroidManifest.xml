@@ -22,10 +22,15 @@
         android:theme="@style/Theme.StarterAppMvvm"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.job.JobDetailActivity"
+            android:name=".ui.job.JobLocationActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar1"/>
+        <activity
+            android:name=".ui.job.JobDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar1" />
         <activity
             android:name=".ui.pdf.FormPdfActivity"
             android:exported="false" />
@@ -242,6 +247,12 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <!--todo
+             Change MAPS API KEY FROM TESTING TO PRODUCTION
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDc3b6XgrNrUnP2CdXqROhy4jWNzekbmIU" />
     </application>
 
 </manifest>
