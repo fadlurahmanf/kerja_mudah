@@ -22,6 +22,9 @@
         android:theme="@style/Theme.StarterAppMvvm"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.job.JobDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.pdf.FormPdfActivity"
             android:exported="false" />
         <activity
