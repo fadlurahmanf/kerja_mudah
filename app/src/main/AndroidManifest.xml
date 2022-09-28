@@ -22,10 +22,15 @@
         android:theme="@style/Theme.StarterAppMvvm"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.job.JobLocationSearchingAnimationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar2"/>
+        <activity
             android:name=".ui.job.JobLocationActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar1"/>
+            android:theme="@style/NoActionBar1" />
         <activity
             android:name=".ui.job.JobDetailActivity"
             android:exported="false"
@@ -247,7 +252,8 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <!--todo
+        <!--
+todo
              Change MAPS API KEY FROM TESTING TO PRODUCTION
         -->
         <meta-data

@@ -14,6 +14,7 @@ import okhttp3.ResponseBody
 import okhttp3.ResponseBody.Companion.toResponseBody
 import okio.IOException
 import okio.Okio
+import org.json.JSONException
 import org.json.JSONObject
 import java.lang.Exception
 import java.net.ConnectException
@@ -36,6 +37,8 @@ class ExceptionInterceptor : Interceptor {
             } else {
                 return response
             }
+        }catch (e:JSONException){
+            throw IOException("Internal Server Error")
         }catch (e:Exception){
             if (e is SocketTimeoutException){
                 throw IOException("Failed to connect with server. Please try again later!")

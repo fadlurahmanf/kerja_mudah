@@ -9,7 +9,6 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import androidx.work.Data
-import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.app.kerja_mudah.R
@@ -33,6 +32,7 @@ import com.app.kerja_mudah.ui.home.adapter.AdsBannerAdapter
 import com.app.kerja_mudah.ui.home.adapter.FreelancerAdapter
 import com.app.kerja_mudah.ui.home.adapter.JobAdapter
 import com.app.kerja_mudah.ui.home.viewmodel.HomeViewModel
+import com.app.kerja_mudah.ui.job.JobLocationSearchingAnimationActivity
 import com.app.kerja_mudah.ui.job.JobDetailActivity
 import com.app.kerja_mudah.ui.quran.QuranInformationActivity
 import javax.inject.Inject
@@ -71,6 +71,11 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
 
         binding?.mQuranView?.setOnClickListener {
             val intent = Intent(requireActivity(), QuranInformationActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding?.mJobNearMe?.setOnClickListener {
+            val intent = Intent(requireActivity(), JobLocationSearchingAnimationActivity::class.java)
             startActivity(intent)
         }
     }
