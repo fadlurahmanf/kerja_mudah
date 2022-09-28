@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import androidx.work.Data
@@ -15,6 +16,7 @@ import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseFragment
 import com.app.kerja_mudah.base.BaseState
 import com.app.kerja_mudah.core.extension.setLightStatusBarColor
+import com.app.kerja_mudah.core.utilities.PermissionUtilities
 import com.app.kerja_mudah.core.worker.core.CacheWorker
 import com.app.kerja_mudah.data.repository.freelancer.FreelancerRepository
 import com.app.kerja_mudah.data.response.core.AdsResponse
@@ -75,8 +77,21 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
         }
 
         binding?.mJobNearMe?.setOnClickListener {
-            val intent = Intent(requireActivity(), JobLocationSearchingAnimationActivity::class.java)
-            startActivity(intent)
+            val result = PermissionUtilities.checkMyGPSLocationProvider(requireContext())
+            if (!result){
+                (requireActivity() as HomeActivity).showConfirmDialog(
+                    title = "Location Permission",
+                    content = "You need to enable access location to use this feature",
+                    negativeText = "Cancel",
+                    positiveText = "App Setting",
+                    positiveListener = {
+                        startActivity(Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+                    }
+                )
+            }else{
+                val intent = Intent(requireActivity(), JobLocationSearchingAnimationActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 

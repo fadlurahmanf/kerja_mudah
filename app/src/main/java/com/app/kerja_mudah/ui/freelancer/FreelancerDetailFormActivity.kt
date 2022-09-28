@@ -142,7 +142,7 @@ class FreelancerDetailFormActivity : BaseActivity<ActivityFreelancerDetailFormBi
     }
 
     private fun checkPermission(){
-        if (PermissionUtilities().checkMultiplePermission(this, Permission.GALLERY_PERMISSIONS)){
+        if (PermissionUtilities.checkMultiplePermission(this, Permission.GALLERY_PERMISSIONS)){
             goToGalleryActivity()
         }else{
             permissionLauncher.launch(Permission.GALLERY_PERMISSIONS)

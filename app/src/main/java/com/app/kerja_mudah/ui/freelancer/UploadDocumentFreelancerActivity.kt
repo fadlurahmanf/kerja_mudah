@@ -39,7 +39,7 @@ class UploadDocumentFreelancerActivity : BaseActivity<ActivityUploadDocumentFree
     }
 
     private fun goToExampleCameraActivity(){
-        if (PermissionUtilities().checkSelfPermission(this, android.Manifest.permission.CAMERA)){
+        if (PermissionUtilities.checkSelfPermission(this, android.Manifest.permission.CAMERA)){
             val intent = Intent(this, ExampleCameraActivity::class.java)
             if (REQUEST_CODE == ID_CARD){
                 intent.putExtra(ExampleCameraActivity.TYPE, ExampleCameraActivity.ID_CARD_TYPE)
