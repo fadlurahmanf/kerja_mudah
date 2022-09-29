@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:text="4 days ago - 30 applicants"
                 android:id="@+id/tv_job_detail_notes"
-                style="@style/Font.Regular.12"
+                style="@style/Font.Regular.14"
                 android:paddingHorizontal="10dp"
                 android:layout_marginTop="10dp" />
             <LinearLayout

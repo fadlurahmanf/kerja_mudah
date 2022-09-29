@@ -1,32 +1,19 @@
 package com.app.kerja_mudah.ui.home
 
-import android.app.Activity
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.os.Handler
-import android.view.Gravity
-import android.view.View
-import android.view.WindowManager
-import androidx.core.content.ContextCompat
+import android.widget.Toast
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseActivity
 import com.app.kerja_mudah.core.extension.setTransparentStatusBar
-import com.app.kerja_mudah.core.receiver.CoreReceiver
 import com.app.kerja_mudah.databinding.ActivityHomeBinding
 import com.app.kerja_mudah.di.component.HomeComponent
 import com.app.kerja_mudah.ui.home.viewmodel.HomeViewModel
 import com.app.kerja_mudah.ui.home.widget.tab.HomeTabFragment
 import com.app.kerja_mudah.ui.home.widget.tab.MyProfileTabFragment
 import com.app.kerja_mudah.ui.home.widget.tab.SearchingTabFragment
-import com.tooltip.Tooltip
 import nl.joery.animatedbottombar.AnimatedBottomBar
+import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate) {
@@ -120,6 +107,30 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
                 this.index = index
                 transaction.replace(R.id.fl, MyProfileTabFragment()).commit()
             }
+        }
+    }
+
+    private var dateOnTapBack:Date ?= null
+    override fun onBackPressed() {
+        if (dateOnTapBack == null){
+            dateOnTapBack = Calendar.getInstance().time
+            showToast(this,"Tap again to exit", Toast.LENGTH_SHORT)
+            handler.postDelayed(backRunnable, 2000)
+        }else{
+            val dateCompare = Calendar.getInstance().time
+            val diff = dateCompare.time - dateOnTapBack!!.time
+            val diffInSeconds = TimeUnit.MILLISECONDS.toSeconds(diff)
+            if (diffInSeconds <= 2){
+                super.onBackPressed()
+            }
+        }
+    }
+
+    private var handler = Handler()
+    private var backRunnable = object : Runnable{
+        override fun run() {
+            dateOnTapBack = null
+            handler.removeCallbacks(this)
         }
     }
 
