@@ -26,6 +26,7 @@ import com.app.kerja_mudah.data.response.job.JobResponse
 import com.app.kerja_mudah.databinding.FragmentHomeTabBinding
 import com.app.kerja_mudah.di.component.HomeComponent
 import com.app.kerja_mudah.ui.core.VPVerticalVideoActivity
+import com.app.kerja_mudah.ui.ewallet.ReadNfcActivity
 import com.app.kerja_mudah.ui.freelancer.DetailFreelancerActivity
 import com.app.kerja_mudah.ui.freelancer.PagingFreelancerActivity
 import com.app.kerja_mudah.ui.freelancer.adapter.HorizontalFreelancerReelAdapter
@@ -92,6 +93,11 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
                 val intent = Intent(requireActivity(), JobLocationSearchingAnimationActivity::class.java)
                 startActivity(intent)
             }
+        }
+
+        binding?.mEwallet?.setOnClickListener {
+            val intent = Intent(requireActivity(), ReadNfcActivity::class.java)
+            startActivity(intent)
         }
     }
 
