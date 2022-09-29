@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.kerja_mudah">
 
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -13,6 +9,10 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.NFC"/>
+
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
     <application
         android:name=".BaseApp"
@@ -27,7 +27,22 @@
             android:name=".ui.ewallet.ReadNfcActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar2" />
+            android:theme="@style/NoActionBar2"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/techlist" />
+
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.job.JobLocationSearchingAnimationActivity"
             android:exported="false"
@@ -224,7 +239,7 @@
             android:theme="@style/NoActionBar1" />
         <activity
             android:name=".ui.example.activity.ExampleActivity"
-            android:configChanges="orientation|screenSize" />
+            android:configChanges="orientation|screenSize"/>
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true"
@@ -232,15 +247,12 @@
             android:theme="@style/Theme.StarterAppMvvm.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="192.168.1.14"
                     android:scheme="http" />
@@ -259,10 +271,8 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <!--
-todo
-             Change MAPS API KEY FROM TESTING TO PRODUCTION
-        -->
+
+        <!--todo Change MAPS API KEY FROM TESTING TO PRODUCTION -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDc3b6XgrNrUnP2CdXqROhy4jWNzekbmIU" />

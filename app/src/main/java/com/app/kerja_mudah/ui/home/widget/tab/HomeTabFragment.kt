@@ -86,6 +86,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
                     negativeText = "Cancel",
                     positiveText = "App Setting",
                     positiveListener = {
+                        (requireActivity() as HomeActivity).dismissConfirmDialog()
                         startActivity(Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS))
                     }
                 )
@@ -96,8 +97,22 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
         }
 
         binding?.mEwallet?.setOnClickListener {
-            val intent = Intent(requireActivity(), ReadNfcActivity::class.java)
-            startActivity(intent)
+            val granted = PermissionUtilities.checkNfcEnabled(requireContext())
+            if (!granted){
+                (requireActivity() as HomeActivity).showConfirmDialog(
+                    title = "NFC Permission",
+                    content = "You need to enable NFC to use this feature",
+                    negativeText = "Cancel",
+                    positiveText = "App Setting",
+                    positiveListener = {
+                        (requireActivity() as HomeActivity).dismissConfirmDialog()
+                        startActivity(Intent(android.provider.Settings.ACTION_NFC_SETTINGS))
+                    }
+                )
+            }else{
+                val intent = Intent(requireActivity(), ReadNfcActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
