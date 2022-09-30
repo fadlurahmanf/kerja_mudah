@@ -34,3 +34,9 @@ abstract class AbstractQuranNetwork<T>(): BaseNetwork<T>() {
         return BuildConfig.BASE_QURAN_URL
     }
 }
+
+abstract class AbstractForecastBMKGNetwork<T>():BaseXmlNetwork<T>(){
+    override fun getBaseUrl(): String {
+        return BuildConfig.BASE_BMKG_FORECAST_URL
+    }
+}

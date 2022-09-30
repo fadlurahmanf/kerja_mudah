@@ -21,6 +21,7 @@ interface ApplicationComponent {
     fun paymentComponent():PaymentComponent.Factory
     fun quranComponent():QuranComponent.Factory
     fun jobComponent():JobComponent.Factory
+    fun weatherComponent():WeatherComponent.Factory
 
     @Component.Factory
     interface Factory{
