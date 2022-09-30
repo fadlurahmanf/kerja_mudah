@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green"
-    tools:context=".ui.quran.QuranInformationActivity">
+    tools:context=".ui.weather.WeatherInformationSourceActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tentang Al-Qur'an."
+            android:text="Tentang Cuaca."
             style="@style/Font.Regular.16"
             android:gravity="center"
             android:textColor="@color/pastel_blue"/>
@@ -63,7 +63,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Informasi terkait Al-Quran ini berasal dari Equran.id. "
+            android:text="Informasi terkait prediksi cuaca ini berasal dari Data Terbuka BMKG."
             android:layout_marginTop="20dp"
             style="@style/Font.Regular.14"
             android:textColor="@color/grey"/>
@@ -71,7 +71,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Untuk informasi lebih lanjut, kunjungi\nwww.equran.id"
+            android:text="Data BMKG yang tersedia dalam format terbuka dan mudah digunakan kembali, dengan tujuan untuk meningkatkan transparansi dan akuntabilitas pemerintah, serta untuk meningkatkan partisipasi masyarakat dalam mengawal kinerja pemerintah."
+            android:layout_marginTop="20dp"
+            style="@style/Font.Regular.14"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Untuk informasi lebih lanjut, kunjungi\ndata.bmkg.go.id"
             android:layout_marginTop="20dp"
             style="@style/Font.Regular.14"
             android:textColor="@color/grey"/>
@@ -96,8 +104,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_link_equran"
-                android:text="www.equran.id"
+                android:id="@+id/tv_link_bmkg"
+                android:text="data.bmkg.go.id"
                 style="@style/Font.SemiBold.12"
                 android:textColor="@color/pastel_blue"/>
         </LinearLayout>
