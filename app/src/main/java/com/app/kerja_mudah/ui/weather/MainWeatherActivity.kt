@@ -1,5 +1,6 @@
 package com.app.kerja_mudah.ui.weather
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.app.kerja_mudah.base.BaseActivity
@@ -10,7 +11,9 @@ import javax.inject.Inject
 
 class MainWeatherActivity : BaseActivity<ActivityMainWeatherBinding>(ActivityMainWeatherBinding::inflate) {
     override fun initSetup() {
-        viewModel.getProvinceWeather("Aceh")
+//        viewModel.getProvinceWeather("JawaBarat")
+        val intent = Intent(this, ChooseLocationWeatherActivity::class.java)
+        startActivity(intent)
     }
 
     @Inject

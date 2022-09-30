@@ -16,8 +16,17 @@ class MainWeatherViewModel @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    println("masuk ${it.forecast?.issue?.timestamp}")
-                    println("masuk ${it.forecast?.domain}")
+                    println("masuk ${it.forecast?.area?.size}")
+                    it.forecast?.area?.forEach { area ->
+                        area.parameter?.forEach { parameter ->
+                            println("masuk ${parameter.description}")
+                            parameter.timerange?.forEach { timeRange ->
+                                timeRange.value?.forEach { value ->
+                                    println("masuk ${value}")
+                                }
+                            }
+                        }
+                    }
                 },
                 {
                     println("masuk salah ${it.message}")

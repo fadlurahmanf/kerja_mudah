@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/drawable/yellow_top_corner_10.xml" value="0.217" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/activity_animate_searching_job_location.xml" value="0.29583333333333334" />
+        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/activity_choose_location_weather.xml" value="0.2942708333333333" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/activity_detail_freelancer.xml" value="0.32533197139938713" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/activity_detail_service.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/activity_faq.xml" value="0.1578125" />
@@ -23,9 +24,11 @@
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/fragment_home_tab.xml" value="0.33902877697841727" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/fragment_searching_tab.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/fragment_work_tab.xml" value="0.1546875" />
+        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/item_city.xml" value="0.4896373056994819" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/item_job.xml" value="0.5142857142857142" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/item_job_category.xml" value="0.1546875" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/item_job_shimmer.xml" value="0.21699196326061998" />
+        <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/item_province.xml" value="0.2942708333333333" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/item_review.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/item_review_2.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/tffaj/AndroidStudioProjects/Kotlin/PROJEK/km2/kerja_mudah_kotlin/app/src/main/res/layout/layout_job_detail_shimmer.xml" value="0.33177083333333335" />
