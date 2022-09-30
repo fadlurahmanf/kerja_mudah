@@ -66,15 +66,15 @@
                         android:orientation="horizontal"
                         android:id="@+id/ll_menu"
                         android:layout_marginTop="15dp"
+                        android:paddingHorizontal="10dp"
                         android:gravity="start">
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:orientation="vertical"
-                            android:id="@+id/mQuranView"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="5dp">
+                            android:id="@+id/mQuranView">
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -90,12 +90,12 @@
                                 android:textColor="@color/black"/>
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:id="@+id/mJobNearMe"
-                            android:orientation="vertical"
-                            android:layout_marginHorizontal="5dp">
+                            android:orientation="vertical">
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -111,12 +111,12 @@
                                 android:textColor="@color/black"/>
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:id="@+id/mEwallet"
-                            android:orientation="vertical"
-                            android:layout_marginHorizontal="5dp">
+                            android:orientation="vertical">
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -132,11 +132,11 @@
                                 android:textColor="@color/black"/>
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:orientation="vertical"
-                            android:layout_marginHorizontal="5dp">
+                            android:orientation="vertical">
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -152,12 +152,31 @@
                                 android:textColor="@color/black"/>
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:orientation="vertical"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="5dp">
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/il_cloudy"/>
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="Weather"
+                                android:gravity="center"
+                                android:layout_marginTop="7dp"
+                                style="@style/Font.SemiBold.12"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -166,7 +185,7 @@
                             <TextView
                                 android:layout_width="60dp"
                                 android:layout_height="wrap_content"
-                                android:text="Semua"
+                                android:text="See\nAll"
                                 android:gravity="center"
                                 android:layout_marginTop="7dp"
                                 style="@style/Font.SemiBold.12"
