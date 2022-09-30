@@ -29,6 +29,7 @@ android {
         buildConfigField "String", "ENCRYPT_DECRYPT_PASSWORD", localProperties["ENCRYPT_DECRYPT_PASSWORD"]
         buildConfigField "String", "BASE_DEV_URL", localProperties["BASE_DEV_URL"]
         buildConfigField "String", "BASE_QURAN_URL", localProperties["BASE_QURAN_URL"]
+        buildConfigField "String", "BASE_BMKG_FORECAST_URL", localProperties["BASE_BMKG_FORECAST_URL"]
         buildConfigField "String", "ENV", "\"DEV\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

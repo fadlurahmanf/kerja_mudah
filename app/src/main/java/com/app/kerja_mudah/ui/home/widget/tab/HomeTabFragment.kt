@@ -38,6 +38,7 @@ import com.app.kerja_mudah.ui.home.viewmodel.HomeViewModel
 import com.app.kerja_mudah.ui.job.JobLocationSearchingAnimationActivity
 import com.app.kerja_mudah.ui.job.JobDetailActivity
 import com.app.kerja_mudah.ui.quran.QuranInformationActivity
+import com.app.kerja_mudah.ui.weather.WeatherInformationSourceActivity
 import javax.inject.Inject
 
 
@@ -74,6 +75,11 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(FragmentHomeTabBind
 
         binding?.mQuranView?.setOnClickListener {
             val intent = Intent(requireActivity(), QuranInformationActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding?.mWeather?.setOnClickListener {
+            val intent = Intent(requireActivity(), WeatherInformationSourceActivity::class.java)
             startActivity(intent)
         }
 

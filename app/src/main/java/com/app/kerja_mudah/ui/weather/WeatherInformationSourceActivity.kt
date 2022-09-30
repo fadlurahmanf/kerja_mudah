@@ -23,7 +23,10 @@ class WeatherInformationSourceActivity : BaseActivity<ActivityWeatherInformation
         }
 
         binding?.btnNext?.setOnClickListener {
-
+            val intent = Intent(this, MainWeatherActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+            finish()
         }
     }
 
