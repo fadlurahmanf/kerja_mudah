@@ -24,4 +24,8 @@ object ParamsKeySP {
 
     // QURAN REPOSITORY
     const val QURAN_FONT_SIZE = "QURAN_FONT_SIZE"
+
+    // WEATHER REPOSITORY
+    const val PROVINCE_SELECTED = "PROVINCE_SELECTED"
+    const val CITY_SELECTED = "CITY_SELECTED"
 }
