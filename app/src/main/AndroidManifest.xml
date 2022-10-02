@@ -28,10 +28,13 @@
         android:theme="@style/Theme.StarterAppMvvm"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.weather.adapter.WeatherAdapter"
+            android:exported="false" />
+        <activity
             android:name=".ui.weather.ChooseLocationWeatherActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar2"/>
+            android:theme="@style/NoActionBar2" />
         <activity
             android:name=".ui.weather.MainWeatherActivity"
             android:exported="false"

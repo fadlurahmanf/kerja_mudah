@@ -11,9 +11,7 @@ import android.nfc.tech.MifareClassic
 import android.util.Log
 import com.app.kerja_mudah.base.BaseActivity
 import com.app.kerja_mudah.databinding.ActivityReadNfcBinding
-import com.google.android.gms.common.util.Hex
 import java.nio.ByteBuffer
-import java.util.*
 import kotlin.experimental.and
 
 
@@ -57,19 +55,26 @@ class ReadNfcActivity : BaseActivity<ActivityReadNfcBinding>(ActivityReadNfcBind
             PendingIntent.getActivity(this.applicationContext, 0, intent, PendingIntent.FLAG_MUTABLE)
 
         val filters = arrayOfNulls<IntentFilter>(1)
-        val techList = arrayOf<Array<String>>()
+//        val techList = arrayOf<Array<String>>()
+        val ndef = IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED)
 
         // Notice that this is the same filter as in our manifest.
-        filters[0] = IntentFilter()
-        filters[0]!!.addAction(NfcAdapter.ACTION_NDEF_DISCOVERED)
-        filters[0]!!.addCategory(Intent.CATEGORY_DEFAULT)
+//        filters[0] = IntentFilter()
+//        filters[0]!!.addAction(NfcAdapter.ACTION_NDEF_DISCOVERED)
+//        filters[0]!!.addCategory(Intent.CATEGORY_DEFAULT)
         try {
-            filters[0]!!.addDataType("text/plain")
+//            filters[0]!!.addDataType("*/*")
+            ndef.addDataType("*/*")
         } catch (e: MalformedMimeTypeException) {
             throw RuntimeException("Check your mime type.")
         }
+        val filter = arrayOf(
+            ndef,
+            IntentFilter(NfcAdapter.ACTION_TECH_DISCOVERED),
+            IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED)
+        )
 
-        nfcAdapter?.enableForegroundDispatch(this, pendingIntent, null, null)
+        nfcAdapter?.enableForegroundDispatch(this, pendingIntent, filter, null)
     }
 
     override fun inject() {
@@ -94,27 +99,29 @@ class ReadNfcActivity : BaseActivity<ActivityReadNfcBinding>(ActivityReadNfcBind
             val miffareClassic = MifareClassic.get(tagFromIntent)
             Log.i(TAG, "MIFARE CLASSIC SIZE ${miffareClassic.size}")
             var data: ByteArray? = null
-            val dfn_srv = byteArrayOf(0xA0.toByte(), 0x00,
-                0x00, 0x00, 0x03, 0x86.toByte(), 0x98.toByte(),
-                0x07, 0x01)
+            val select_apdu = byteArrayOf(
+                0x94.toByte(),
+                0xA4.toByte(), 0x00, 0x00, 0x02.toByte(), 0x20.toByte(), 0x69, 0x00
+            )
+            val readrecord_apdu = byteArrayOf(0x94.toByte(), 0xB2.toByte(), 0x01, 0x04, 0x00)
 
             val isoDep = IsoDep.get(tagFromIntent)
             try {
                 isoDep.connect()
                 if (isoDep.isConnected){
-                    val sys = "1PAY.SYS.DDF01".toByteArray()
-                    var back = isoDep.transceive(getSelectCommand(sys))
-                    back = isoDep.transceive(getSelectCommand(dfn_srv))
-                    val readMoney = byteArrayOf(0x80.toByte(), // CLA Class
-                        0x5C.toByte(), // INS Instruction
-                        0x00.toByte(), // P1 Parameter 1
-                        0x02.toByte(), // P2 Parameter 2
+                    isoDep.transceive(select_apdu)
+                    val back = isoDep.transceive(readrecord_apdu    )
+                    val readMoney = byteArrayOf(0x00.toByte(), // CLA Class
+                        0xB0.toByte(), // INS Instruction
+                        0x80.toByte(), // P1 Parameter 1
+                        0x01.toByte(), // P2 Parameter 2
                         0x04.toByte())// Le
                     val money = isoDep.transceive(readMoney)
                     if (money != null) {
                         val cash = byteToInt(money, money.size)
                         val ba = cash / 100.0f
                         Log.e(TAG, "cash: ${cash.toString()}")
+                        Log.e(TAG, "ba: ${ba}")
                     }else{
                         Log.e(TAG, "Else ${money?.size}")
                     }

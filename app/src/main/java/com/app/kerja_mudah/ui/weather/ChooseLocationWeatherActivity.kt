@@ -1,18 +1,23 @@
 package com.app.kerja_mudah.ui.weather
 
-import android.view.MenuItem
+import android.os.Handler
+import android.view.Gravity
 import android.view.View
 import android.widget.PopupMenu
-import androidx.appcompat.view.ContextThemeWrapper
+import androidx.core.content.ContextCompat
 import com.app.kerja_mudah.R
 import com.app.kerja_mudah.base.BaseActivity
 import com.app.kerja_mudah.base.BaseState
+import com.app.kerja_mudah.core.constant.UpdateWeatherLocation
+import com.app.kerja_mudah.core.utilities.RxBus
 import com.app.kerja_mudah.data.repository.weather.WeatherRepository
 import com.app.kerja_mudah.data.response.weather.Area
 import com.app.kerja_mudah.data.response.weather.ProvinceWeatherResponse
 import com.app.kerja_mudah.databinding.ActivityChooseLocationWeatherBinding
 import com.app.kerja_mudah.di.component.WeatherComponent
+import com.app.kerja_mudah.ui.weather.adapter.WeatherCityAdapter
 import com.app.kerja_mudah.ui.weather.viewmodel.MainWeatherViewModel
+import com.tooltip.Tooltip
 import javax.inject.Inject
 
 class ChooseLocationWeatherActivity : BaseActivity<ActivityChooseLocationWeatherBinding>(ActivityChooseLocationWeatherBinding::inflate) {
@@ -30,6 +35,31 @@ class ChooseLocationWeatherActivity : BaseActivity<ActivityChooseLocationWeather
         initAction()
         initAdapter()
         initObserver()
+        if (provinceSelected != null){
+            binding?.tvProvinceName?.text = provinceSelected
+            viewModel.getProvinceWeather(provinceSelected?.replace(" ", "")?:"")
+        }
+        showToolTip()
+    }
+
+    private fun showToolTip(){
+        val tooltip = Tooltip.Builder(binding!!.tvProvinceName)
+            .setText("Choose Province Here!")
+            .setGravity(Gravity.BOTTOM)
+            .setCornerRadius(5f)
+            .setTextStyle(R.style.Font_Regular_14)
+            .setBackgroundColor(ContextCompat.getColor(this, R.color.light_grey))
+            .setTextColor(ContextCompat.getColor(this, R.color.dark_blue))
+            .setCancelable(false)
+            .setPadding(30)
+            .setOnClickListener {
+                it.dismiss()
+            }
+            .build()
+
+        Handler().postDelayed({
+            tooltip.show()
+        }, 500)
     }
 
     private lateinit var adapter: WeatherCityAdapter
@@ -38,6 +68,11 @@ class ChooseLocationWeatherActivity : BaseActivity<ActivityChooseLocationWeather
         adapter = WeatherCityAdapter()
         adapter.setCallback(object : WeatherCityAdapter.CallBack{
             override fun onClicked(area: Area) {
+                citySelected = area.city
+                repository.citySelected = citySelected
+                repository.provinceSelected = provinceSelected
+                repository.weatherResponse = provinceWeatherResponse
+                RxBus.publish(UpdateWeatherLocation())
                 finish()
             }
         })

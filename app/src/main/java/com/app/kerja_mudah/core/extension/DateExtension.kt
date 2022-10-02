@@ -114,3 +114,12 @@ fun Date.formatDate6():String?{
         return null
     }
 }
+
+fun Date.formatDate7():String?{
+    try {
+        val sdf = SimpleDateFormat("EEE, d MMM")
+        return sdf.format(this)
+    }catch (e:Exception){
+        return null
+    }
+}

@@ -1,4 +1,4 @@
-package com.app.kerja_mudah.ui.weather
+package com.app.kerja_mudah.ui.weather.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +11,7 @@ import com.app.kerja_mudah.data.response.weather.Area
 class WeatherCityAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var list:ArrayList<Area> = arrayListOf()
 
-    private var callback:CallBack ?= null
+    private var callback: CallBack?= null
 
     fun setCallback(callBack: CallBack){
         this.callback = callBack

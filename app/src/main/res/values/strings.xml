@@ -61,4 +61,6 @@
     <string name="detail_freelancer">Detail Freelancer</string>
     <string name="document">Document</string>
     <string name="terms_condition"><![CDATA[Terms & Condition]]></string>
+    <string name="temperature_celcius">%s°C</string>
+    <string name="temperature_farenheit">%s°F</string>
 </resources>
