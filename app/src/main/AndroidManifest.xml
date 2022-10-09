@@ -28,6 +28,12 @@
         android:theme="@style/Theme.StarterAppMvvm"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.ewallet.EWalletIntroductionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ewallet.EWalletHomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.weather.adapter.WeatherAdapter"
             android:exported="false" />
         <activity
