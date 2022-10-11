@@ -115,6 +115,10 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="Font.SemiBold.25">
+        <item name="android:textSize">25sp</item>
+    </style>
+
     <style name="Font.Bold.30">
         <item name="android:textSize">30sp</item>
     </style>
