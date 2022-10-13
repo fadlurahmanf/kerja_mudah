@@ -29,13 +29,14 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.ewallet.EWalletIntroductionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar1"/>
         <activity
             android:name=".ui.ewallet.EWalletHomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.weather.adapter.WeatherAdapter"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar1"/>
         <activity
             android:name=".ui.weather.ChooseLocationWeatherActivity"
             android:exported="false"

@@ -13,6 +13,7 @@
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:id="@+id/iv_income_outcome"
             android:src="@drawable/ic_trending_up"
             app:tint="@color/blue"
             android:background="@drawable/light_grey_circle"
@@ -28,12 +29,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Income"
+                android:id="@+id/tv_type"
                 style="@style/Font.Regular.16"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:id="@+id/tv_note"
                 android:text="@string/dummy_text_5_word"
                 style="@style/Font.Regular.14"
                 android:textColor="@color/grey"/>
@@ -43,6 +46,7 @@
             android:layout_height="wrap_content"
             android:text="+Rp.2.500.000"
             style="@style/Font.Regular.16"
+            android:id="@+id/tv_total_income_outcome"
             android:textColor="@color/green"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

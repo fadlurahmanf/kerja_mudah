@@ -123,13 +123,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:elevation="15dp"
+                android:id="@+id/mCheckEMoney"
                 android:layout_marginTop="15dp"
                 android:layout_marginHorizontal="15dp"
                 android:background="@drawable/solid_light_blue_2_corner_5">
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/il_online_payment"
+                    android:src="@color/black"
                     android:id="@+id/iv_logo_online_payment"
                     android:scaleType="centerCrop"
                     app:layout_constraintTop_toTopOf="parent"
@@ -181,6 +182,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/rv_income_outcome"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_marginTop="0dp"
                 android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/item_income_outcome"/>
