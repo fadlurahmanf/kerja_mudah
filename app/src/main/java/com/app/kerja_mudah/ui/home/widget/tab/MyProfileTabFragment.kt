@@ -165,9 +165,13 @@ class MyProfileTabFragment : BaseFragment<FragmentMyProfileTabBinding>(FragmentM
         component.inject(this)
     }
 
-    private fun testBranch(){
-        // TES BRANCH Main 20:17
-        // TES BRANCH Main 20:17
-        // TES BRANCH Main 20:17
+    private fun tesssPullll(){
+        // TES = Pull
+        // TES = Pull
+        // TES = Pull
+        // TES = Pull
+        
+        // TES
+        // TES
     }
 }
